@@ -4,7 +4,7 @@ import matplotlib as mpl
 from matplotlib import font_manager as fm
 import pkg_resources
 
-from .core import download_font   
+from .core import download_googlefont   
 
 # __version__ = pkg_resources.require("opinionated")[0].version
 __author__ = 'Maximilian Noichl <noichlmax@hotmail.co.uk>'
