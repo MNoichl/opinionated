@@ -9,7 +9,7 @@ import opinionated # this works?
 
 
 from matplotlib import font_manager as fm
- from IPython.core.display import HTML
+from IPython.core.display import HTML
 
 
 # download fonts from google fonts and save them in the fonts folder:
