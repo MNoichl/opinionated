@@ -37,7 +37,7 @@ def make_html(fontname):
 def show_installed_fonts():
     """Show all installed fonts in a columnized HTML table. Works in notebooks only.
     """
-    code = "\n".join([make_html(font) for font in sorted(set([f.name for f in matplotlib.font_manager.fontManager.ttflist]))])
+    code = "\n".join([make_html(font) for font in sorted(set([f.name for f in fm.fontManager.ttflist]))])
     display(HTML("<div style='column-count: 2;'>{}</div>".format(code)))
 
 
