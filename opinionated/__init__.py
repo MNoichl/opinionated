@@ -4,7 +4,8 @@ import matplotlib as mpl
 from matplotlib import font_manager as fm
 import pkg_resources
 
-# from .core import 
+from .core import download_font   
+
 # __version__ = pkg_resources.require("opinionated")[0].version
 __author__ = 'Maximilian Noichl <noichlmax@hotmail.co.uk>'
 __all__ = []
