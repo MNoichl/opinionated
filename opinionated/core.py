@@ -7,14 +7,14 @@ import shutil
 from pathlib import Path
 import opinionated # this works?
 import matplotlib as mpl
-    
+
 
 from matplotlib import font_manager as fm
 from IPython.core.display import HTML
 
 
 # download fonts from google fonts and save them in the fonts folder:
-def download_googlefont(font='Roboto Condensed'):
+def download_googlefont(font='Roboto Condensed', add_to_cache=False):
     """download a font from google fonts and save it in the fonts folder
 
     Args:
@@ -28,7 +28,8 @@ def download_googlefont(font='Roboto Condensed'):
     font_folder = Path(opinionated.__file__).parent / 'fonts'
     z.extractall(font_folder)
     print(f'Font saved to: {font_folder}')
-
+    if add_to_cache:
+        update_matplotlib_fonts()
 
 
 def make_html(fontname):
