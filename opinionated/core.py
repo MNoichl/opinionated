@@ -39,3 +39,15 @@ def show_installed_fonts():
     """
     code = "\n".join([make_html(font) for font in sorted(set([f.name for f in matplotlib.font_manager.fontManager.ttflist]))])
     display(HTML("<div style='column-count: 2;'>{}</div>".format(code)))
+
+
+def update_matplotlib_fonts():
+    """Update matplotlib's font cache. Useful if you installed new fonts and want to use them in matplotlib.
+    """
+    font_files = fm.findSystemFonts('.')
+    for font_file in font_files:
+        try:
+            fm.fontManager.addfont(font_file)
+        except:
+            print('This font could not be added: ', font_file)
+            pass
