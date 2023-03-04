@@ -6,7 +6,8 @@ import os
 import shutil
 from pathlib import Path
 import opinionated # this works?
-
+import matplotlib as mpl
+    
 
 from matplotlib import font_manager as fm
 from IPython.core.display import HTML
@@ -42,12 +43,19 @@ def show_installed_fonts():
 
 
 def update_matplotlib_fonts():
-    """Update matplotlib's font cache. Useful if you installed new fonts and want to use them in matplotlib.
+    """Update matplotlib's font cache. Useful if you downloaded googlefonts to the fonts folder (with download_googlefont) and want to use them in matplotlib.
     """
-    font_files = fm.findSystemFonts('.')
-    for font_file in font_files:
-        try:
-            fm.fontManager.addfont(font_file)
-        except:
-            print('This font could not be added: ', font_file)
-            pass
+    #update the font cache: 
+
+
+    font_folder = Path(opinionated.__file__).parent / 'fonts'
+    for font_file in fm.findSystemFonts(fontpaths=str(font_folder)):
+
+        if ('.ttf' in font_file) or ('.otf' in font_file):
+            try:
+                fm.fontManager.addfont(os.path.join(font_folder,font_file))
+            except:
+                print('This font could not be added: ', font_file)
+                pass
+
+    # shutil.rmtree(mpl.get_cachedir())
