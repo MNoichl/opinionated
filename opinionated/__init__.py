@@ -14,3 +14,13 @@ __all__ = []
 data_path = pkg_resources.resource_filename('opinionated', 'data/')
 opinionated_stylesheets = mpl.style.core.read_style_directory(data_path)
 mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
+
+# check if the font is already installed WE SHOULD DO THIS....
+# font_path = pkg_resources.resource_filename('opinionated', 'fonts/RobotoCondensed-Regular.ttf')
+
+download_googlefont(font='Roboto Condensed')
+download_googlefont(font='Montserrat')
+download_googlefont(font='Source Code Pro')
+download_googlefont(font='Source Sans Pro')
+download_googlefont(font='Fira Sans')
+
