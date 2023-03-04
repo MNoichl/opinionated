@@ -4,7 +4,7 @@ import matplotlib as mpl
 from matplotlib import font_manager as fm
 import pkg_resources
 
-from .core import download_googlefont   
+from .core import download_googlefont, show_installed_fonts, update_matplotlib_fonts
 
 # __version__ = pkg_resources.require("opinionated")[0].version
 __author__ = 'Maximilian Noichl <noichlmax@hotmail.co.uk>'
@@ -24,3 +24,6 @@ download_googlefont(font='Source Code Pro')
 download_googlefont(font='Source Sans Pro')
 download_googlefont(font='Fira Sans')
 
+
+
+update_matplotlib_fonts()
