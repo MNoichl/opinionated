@@ -23,7 +23,7 @@ download_googlefont(font='Montserrat')
 download_googlefont(font='Source Code Pro')
 download_googlefont(font='Source Sans Pro')
 download_googlefont(font='Fira Sans')
-
+download_googlefont(font='IBM Plex Sans')
 
 
 update_matplotlib_fonts()
