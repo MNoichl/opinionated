@@ -18,12 +18,14 @@ mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
 # check if the font is already installed WE SHOULD DO THIS....
 # font_path = pkg_resources.resource_filename('opinionated', 'fonts/RobotoCondensed-Regular.ttf')
 
-download_googlefont(font='Roboto Condensed')
-download_googlefont(font='Montserrat')
-download_googlefont(font='Source Code Pro')
-download_googlefont(font='Source Sans Pro')
-download_googlefont(font='Fira Sans')
-download_googlefont(font='IBM Plex Sans')
+fonts = ['Roboto Condensed', 'Montserrat', 
+         'Source Code Pro', 'Source Sans Pro',
+         'Fira Sans', 'IBM Plex Sans',
+         'Space Grotesk', 'Space Mono',
+         'Roboto','Roboto Condensed', 'Jost']
 
+for font in fonts:
+  print('Now downloading: ' + font)
+  download_googlefont(font=font)
 
 update_matplotlib_fonts()
