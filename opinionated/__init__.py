@@ -3,6 +3,8 @@
 import matplotlib as mpl
 from matplotlib import font_manager as fm
 import pkg_resources
+from typing import Optional, Union, List, Tuple
+import os
 
 from .core import download_googlefont, show_installed_fonts, update_matplotlib_fonts, add_attribution, add_legend
 
@@ -17,7 +19,6 @@ opinionated_stylesheets = mpl.style.core.read_style_directory(data_path)
 mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
 
 # check if the font is already installed WE SHOULD DO THIS....
-# font_path = pkg_resources.resource_filename('opinionated', 'fonts/RobotoCondensed-Regular.ttf')
 
 fonts = ['Roboto Condensed', 'Montserrat', 
          'Source Code Pro', 'Source Sans Pro',
@@ -25,8 +26,21 @@ fonts = ['Roboto Condensed', 'Montserrat',
          'Space Grotesk', 'Space Mono',
          'Roboto','Roboto Condensed', 'Jost']
 
+
+def check_if_font_already_present(font):
+  # check if a file that contains thefont name is already in the fonts folder:
+  try: 
+    for file in [x.lower() for x in os.listdir('fonts')]:
+      if font.replace(' ','').lower() in file:
+        return True
+    return False
+  except:
+    return False
+  
+
 for font in fonts:
-  print('Now downloading: ' + font)
-  download_googlefont(font=font)
+  if not check_if_font_already_present(font):
+    print('Now downloading: ' + font)
+    download_googlefont(font=font)
 
 update_matplotlib_fonts()

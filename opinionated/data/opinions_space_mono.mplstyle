@@ -21,7 +21,7 @@ grid.color: e5e5e5
 
 
 font.family: sans-serif
-font.sans-serif: Roboto Condensed, Arial, Liberation Sans, DejaVu Sans, Bitstream Vera Sans, sans-serif
+font.sans-serif: Space Mono, Liberation Sans, DejaVu Sans, Bitstream Vera Sans, sans-serif
 
 lines.solid_capstyle: round
 axes.linewidth: 0

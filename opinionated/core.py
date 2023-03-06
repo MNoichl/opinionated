@@ -8,7 +8,11 @@ from pathlib import Path
 import opinionated # this works?
 import matplotlib as mpl
 
+from typing import Optional, Union, List, Tuple
 
+
+
+import matplotlib.pyplot as plt
 from matplotlib import font_manager as fm
 from IPython.core.display import HTML
 
@@ -71,11 +75,11 @@ def update_matplotlib_fonts():
 
     # Plotting functions:
 
-def add_legend(title):
-    ax.legend(bbox_to_anchor=(1.2, .5),
+def add_legend(ax: Optional[plt.Axes] = None, title: str = 'Title goes here!') -> None:
+    ax.legend(bbox_to_anchor=(1.1, .5),
                 borderaxespad=0.0,
                 title="$\\bf{" + title + "}$",
                 fancybox=True) 
 
-def add_attribution(attrib):
-    plt.figtext( .9, -0.015, attrib, ha="right", fontsize=14)#, bbox={"facecolor":"orange", "alpha":0.5, "pad":5})
+def add_attribution(ax: Optional[plt.Axes] = None, attrib: str = 'Attribution goes here') -> None:
+    plt.figtext( .9, -0.01, attrib, ha="right", fontsize=14)#, bbox={"facecolor":"orange", "alpha":0.5, "pad":5})
