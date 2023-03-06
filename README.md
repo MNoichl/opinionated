@@ -16,7 +16,7 @@ The main application I had in mind was to increase the quality of plots in colab
 
 
 
-![A sample plot.](img/outofthebox_barchart.png)
+![A sample plot.](img/opinions_rc_example.png)
 
 ## Inspiration 
 
