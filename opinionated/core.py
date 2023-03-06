@@ -60,3 +60,31 @@ def update_matplotlib_fonts():
                 pass
 
     # shutil.rmtree(mpl.get_cachedir())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # Plotting functions:
+
+def add_legend(title):
+    ax.legend(bbox_to_anchor=(1.2, .5),
+                borderaxespad=0.0,
+                title="$\\bf{" + title + "}$",
+                fancybox=True) 
+
+def add_attribution(attrib):
+    plt.figtext( .9, -0.015, attrib, ha="right", fontsize=14)#, bbox={"facecolor":"orange", "alpha":0.5, "pad":5})

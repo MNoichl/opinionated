@@ -20,7 +20,7 @@ setup(
     package_data={
       'opinionated': ['data/*.mplstyle'],
    },
-    install_requires=['matplotlib'],
+    install_requires=['matplotlib','seaborn'],
 
     # Derive version from git. If HEAD is at the tag, the version will be the tag itself.
     version_config={
