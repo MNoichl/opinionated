@@ -20,7 +20,7 @@ mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
 
 fonts = ['Roboto Condensed', 'Montserrat', 
          'Source Code Pro', 'Source Sans Pro',
-         'Fira Sans', 'IBM Plex Sans',
+         'Fira Sans','Fira Sans Condensed', 'IBM Plex Sans',
          'Space Grotesk', 'Space Mono',
          'Roboto','Roboto Condensed', 'Jost']
 
