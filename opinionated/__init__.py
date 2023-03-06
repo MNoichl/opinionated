@@ -4,7 +4,8 @@ import matplotlib as mpl
 from matplotlib import font_manager as fm
 import pkg_resources
 
-from .core import download_googlefont, show_installed_fonts, update_matplotlib_fonts
+from .core import download_googlefont, show_installed_fonts, update_matplotlib_fonts, add_attribution, add_legend
+
 
 # __version__ = pkg_resources.require("opinionated")[0].version
 __author__ = 'Maximilian Noichl <noichlmax@hotmail.co.uk>'
