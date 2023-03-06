@@ -69,15 +69,6 @@ def update_matplotlib_fonts():
 
 
 
-
-
-
-
-
-
-
-
-
     # Plotting functions:
 
 def add_legend(title):
