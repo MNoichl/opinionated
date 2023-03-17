@@ -76,7 +76,7 @@ def update_matplotlib_fonts():
     # Plotting functions:
 
 def add_legend(ax: Optional[plt.Axes] = None, title: str = 'Title goes here!') -> None:
-    ax.legend(bbox_to_anchor=(1.1, .5),
+    ax.legend(bbox_to_anchor=(1.2, .5),
                 borderaxespad=0.0,
                 title="$\\bf{" + title + "}$",
                 fancybox=True) 
