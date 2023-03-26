@@ -37,7 +37,6 @@ fonts = [
     "Space Grotesk",
     "Space Mono",
     "Roboto",
-    "Roboto Condensed",
     "Jost",
 ]
 
@@ -65,23 +64,24 @@ update_matplotlib_fonts()
 
 
 # Monkeypatching matplotlib to change the legend font-width:
-import matplotlib.axes
-import matplotlib.pyplot as plt
-def legend_wrapper(*args, **kwargs):
-    # Extract title from kwargs, if provided
-    title = kwargs.pop("title", None)
+# import matplotlib.axes
+# import matplotlib.pyplot as plt
+# def legend_wrapper(*args, **kwargs):
+#     # Extract title from kwargs, if provided
+#     print(kwargs)
+#     title = kwargs.pop("title", None)
 
-    # If title exists, make it bold
-    if title:
-        title = "$\\bf{" + title + "}$"
-        kwargs["title"] = title
-    kwargs["bbox_to_anchor"] = (1.2, .5)
+#     # If title exists, make it bold
+#     if title:
+#         title = "$\\bf{" + title + "}$"
+#         kwargs["title"] = title
+#     kwargs["bbox_to_anchor"] = (1.2, .5)
 
-    # Call the original legend function with the modified title and kwargs
-    return original_legend_func(*args, **kwargs)
+#     # Call the original legend function with the modified title and kwargs
+#     return original_legend_func(*args, **kwargs)
 
-# Save the original legend function for internal use
-original_legend_func = matplotlib.axes.Axes.legend
+# # Save the original legend function for internal use
+# original_legend_func = matplotlib.axes.Axes.legend
 
-# Monkey patch the legend function
-matplotlib.axes.Axes.legend = legend_wrapper
+# # Monkey patch the legend function
+# matplotlib.axes.Axes.legend = legend_wrapper

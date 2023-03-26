@@ -41,7 +41,7 @@ axes.labelpad: 8
 
 axes.labelcolor: black
 axes.labelsize: 17
-axes.labelweight: semibold
+axes.labelweight: bold
 
 xaxis.labellocation: right
 yaxis.labellocation: top
