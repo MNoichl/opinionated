@@ -11,7 +11,7 @@ from .core import (
     show_installed_fonts,
     update_matplotlib_fonts,
     add_attribution,
-    add_legend,
+    set_title_and_suptitle,
 )
 
 
