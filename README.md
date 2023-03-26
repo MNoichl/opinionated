@@ -30,14 +30,42 @@ And finally you can slap on some additional information:
     opinionated.set_title_and_suptitle('Penguins!','They are a very good type of bird!')
 
 Here's the result:
+
 <img src="img/opinions_rc_example.png" width="672" />
 
 This certainly does look better than what the defaults would give you, right? –
+
 <img src="img/outofthebox_penguins.png" width="672" />
 
+The style `opinions_rc` makes use of the font `Roboto Condensed`, which is my favorite from the original hrbrthemes-package. But there are other styles that you can use. Generally I would advise to use the narrower fonts for plots with more, and the wider ones for fonts with less text. Right now there are also:
 
-The style `opinions_rc` 
-<!-- ![A sample plot of the opinions_rc theme.](img/opinions_rc_example.png) -->
+
+`opinions_sg` which uses Florian Karsten's lovely space `Space Grotesk` font, 
+
+
+`opinions_fsc` which uses ... lovely space `Fira Sans Grotesk` font, 
+
+
+`opinions_m` which uses ... lovely space `Montserrat` font, 
+
+
+and 
+
+``opinions_j` which uses ...  `Jost`, 
+
+
+
+
+Importantly, you can download whatever font you want from google-fonts, so nothing will keep you from doing something like: 
+
+    from opinionated.core import download_googlefont
+    download_googlefont('Lobster', add_to_cache=True)
+    plt.rc('font', family='Lobster') 
+
+
+## To-Do:
+
+- [ ] Add automatic installation of good colormaps from `cmocean` and `mcrameri`.
 
 ## Inspiration 
 
