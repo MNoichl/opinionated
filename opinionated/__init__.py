@@ -75,8 +75,9 @@ def legend_wrapper(*args, **kwargs):
     if title:
         title = "$\\bf{" + title + "}$"
         kwargs["title"] = title
+    kwargs["bbox_to_anchor"] = (1.2, .5)
 
-    # Call the original legend function with the modified title
+    # Call the original legend function with the modified title and kwargs
     return original_legend_func(*args, **kwargs)
 
 # Save the original legend function for internal use

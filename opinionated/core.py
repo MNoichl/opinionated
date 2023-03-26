@@ -75,11 +75,17 @@ def update_matplotlib_fonts():
 
     # Plotting functions:
 
-def add_legend(ax: Optional[plt.Axes] = None, title: str = 'Title goes here!') -> None:
-    ax.legend(bbox_to_anchor=(1.2, .5),
-                borderaxespad=0.0,
-                title="$\\bf{" + title + "}$",
-                fancybox=True) 
+# def add_legend(ax: Optional[plt.Axes] = None, title: str = 'Title goes here!') -> None:
+#     ax.legend(bbox_to_anchor=(1.2, .5),
+#                 borderaxespad=0.0,
+#                 title="$\\bf{" + title + "}$",
+#                 fancybox=True) 
 
-def add_attribution(ax: Optional[plt.Axes] = None, attrib: str = 'Attribution goes here') -> None:
+def add_attribution(attrib: str = 'Attribution goes here'):
+    fig = plt.gcf()
     plt.figtext( .9, -0.01, attrib, ha="right", fontsize=14)#, bbox={"facecolor":"orange", "alpha":0.5, "pad":5})
+
+def set_title_and_suptitle(title_string,sub_title_string):
+    fig = plt.gcf()
+    plt.figtext( .12, .97, title_string, fontsize=26, fontweight='bold', ha='left')
+    plt.figtext( .12, .918, sub_title_string,  fontsize=14, fontweight='regular', ha='left')
