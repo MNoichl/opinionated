@@ -3,7 +3,7 @@
 `opinionated` provides simple, clean stylesheets for plotting with `matplotlib`. 
 It's modelled and named after hrbrthemes in R, by hrbrmstr, which are "Opinionated, typographic-centric ggplot2 themes", although I have made some different choices. 
 
-The main application I had in mind was to increase the quality of plots in colab-environments, where there is a very small range of preinstalled fonts. The package therefore automatically downloads fonts from GoogleFonts. But I think everything should also work on your local machine. Be aware though, that it does monkeypatch the defaults of the legend-function, which might lead to unexpected results.
+The main application I had in mind was to increase the quality of plots in colab-environments, where there is a very small range of preinstalled fonts. The package therefore automatically downloads fonts from GoogleFonts. But I think everything should also work on your local machine. Be aware though, that it's not super well tested, and might e. g. fail with facets.
 
 
 
@@ -43,15 +43,15 @@ The style `opinions_rc` makes use of the font `Roboto Condensed`, which is my fa
 `opinions_sg` which uses Florian Karsten's lovely space `Space Grotesk` font, 
 
 
-`opinions_fsc` which uses ... lovely space `Fira Sans Grotesk` font, 
+`opinions_fsc` which uses  `Fira Sans Grotesk` font, 
 
 
-`opinions_m` which uses ... lovely space `Montserrat` font, 
+`opinions_m` which uses `Montserrat` font, 
 
 
 and 
 
-``opinions_j` which uses ...  `Jost`, 
+``opinions_j` which   `Jost`, 
 
 
 
@@ -62,10 +62,22 @@ Importantly, you can download whatever font you want from google-fonts, so nothi
     download_googlefont('Lobster', add_to_cache=True)
     plt.rc('font', family='Lobster') 
 
+Which will result in something like the following:
+
+<img src="img/opinions_lobster_example.png" width="672" />
+
+If you want to get an overview over the installed fonts, you can run the following:
+
+    from opinionated.core import show_installed_fonts
+    show_installed_fonts()
+
+
 
 ## To-Do:
 
 - [ ] Add automatic installation of good colormaps from `cmocean` and `mcrameri`.
+- [ ] Make it play nice with facets!
+
 
 ## Inspiration 
 

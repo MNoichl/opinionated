@@ -75,17 +75,34 @@ def update_matplotlib_fonts():
 
     # Plotting functions:
 
-# def add_legend(ax: Optional[plt.Axes] = None, title: str = 'Title goes here!') -> None:
-#     ax.legend(bbox_to_anchor=(1.2, .5),
-#                 borderaxespad=0.0,
-#                 title="$\\bf{" + title + "}$",
-#                 fancybox=True) 
-
-def add_attribution(attrib: str = 'Attribution goes here'):
+def add_legend(*args, **kwargs):
     fig = plt.gcf()
-    plt.figtext( .9, -0.01, attrib, ha="right", fontsize=14)#, bbox={"facecolor":"orange", "alpha":0.5, "pad":5})
+    
+    if not "bbox_to_anchor" in kwargs:
+        kwargs["bbox_to_anchor"] = (1.2, .5)
+    legend = plt.legend(*args, **kwargs)
+    legend.get_title().set_fontweight('bold')
+    # return legend
 
-def set_title_and_suptitle(title_string,sub_title_string):
+    # ax.legend(bbox_to_anchor=(1.2, .5),
+    #             borderaxespad=0.0,
+    #             title="$\\bf{" + title + "}$",
+    #             fancybox=True) 
+
+def add_attribution(attrib = 'Attribution goes here', position = [.9, -0.01]):
     fig = plt.gcf()
-    plt.figtext( .12, .97, title_string, fontsize=26, fontweight='bold', ha='left')
-    plt.figtext( .12, .918, sub_title_string,  fontsize=14, fontweight='regular', ha='left')
+    plt.figtext(position[0],position[1], attrib, ha="right", fontsize=14)#, bbox={"facecolor":"orange", "alpha":0.5, "pad":5})
+
+def set_title_and_suptitle(title_string,sub_title_string,adjust_y=1.):
+    """
+    Set the title and subtitle of a plot. The subtitle is set a bit lower than the title. 
+    The adjust_y parameter can be used to adjust the vertical position of the two titles.
+    Args:
+        title_string (str): The title string
+        sub_title_string (str): The subtitle string
+        adjust_y (float, optional): The vertical position of the two titles. Defaults to 1.
+
+    """
+    fig = plt.gcf()
+    plt.figtext( .12, .97 * adjust_y, title_string, fontsize=26, fontweight='bold', ha='left')
+    plt.figtext( .12, .918 * adjust_y, sub_title_string,  fontsize=14, fontweight='regular', ha='left')

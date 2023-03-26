@@ -12,6 +12,7 @@ from .core import (
     update_matplotlib_fonts,
     add_attribution,
     set_title_and_suptitle,
+    add_legend
 )
 
 
@@ -68,17 +69,19 @@ update_matplotlib_fonts()
 # import matplotlib.pyplot as plt
 # def legend_wrapper(*args, **kwargs):
 #     # Extract title from kwargs, if provided
-#     print(kwargs)
-#     title = kwargs.pop("title", None)
+#     # print(kwargs)
+#     # title = kwargs.pop("title", None)
 
 #     # If title exists, make it bold
-#     if title:
-#         title = "$\\bf{" + title + "}$"
-#         kwargs["title"] = title
+#     # if title:
+#     #     title = "$\\bf{" + title + "}$"
+#     #     kwargs["title"] = title
 #     kwargs["bbox_to_anchor"] = (1.2, .5)
+#     legend = original_legend_func(*args, **kwargs)
+#     legend.get_title().set_fontweight('bold')
 
 #     # Call the original legend function with the modified title and kwargs
-#     return original_legend_func(*args, **kwargs)
+#     return legend#original_legend_func(*args, **kwargs)
 
 # # Save the original legend function for internal use
 # original_legend_func = matplotlib.axes.Axes.legend
