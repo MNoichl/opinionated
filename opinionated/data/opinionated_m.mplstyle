@@ -1,8 +1,5 @@
 # https://matplotlib.org/stable/api/matplotlib_configuration_api.html#matplotlib.RcParams
 # from seaborn dark
-# Legacy base style!!
-
-
 legend.frameon: False
 legend.numpoints: 1
 legend.scatterpoints: 1
@@ -24,7 +21,7 @@ grid.color: e5e5e5
 
 
 font.family: sans-serif
-font.sans-serif: Montserrat, Source Sans Pro, Arial, Liberation Sans, DejaVu Sans, Bitstream Vera Sans, sans-serif
+font.sans-serif: Montserrat, Arial, Liberation Sans, DejaVu Sans, Bitstream Vera Sans, sans-serif
 
 lines.solid_capstyle: round
 axes.linewidth: 0
@@ -39,7 +36,7 @@ axes.titlesize: 26
 axes.titlelocation: left
 axes.titleweight: bold
 axes.titlepad: 20
-axes.labelpad: 13
+axes.labelpad: 8
 
 
 axes.labelcolor: black
@@ -56,6 +53,12 @@ ytick.color: 000000
 ytick.labelsize: 15
 xtick.labelsize: 15
 
+
+
+legend.loc: center right
+legend.title_fontsize: 15
+legend.fontsize: 15   
+legend.markerscale:   1.3
 
 
 

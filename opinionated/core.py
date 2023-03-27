@@ -88,7 +88,7 @@ def add_legend(*args, **kwargs):
     #             borderaxespad=0.0,
     #             title="$\\bf{" + title + "}$",
     #             fancybox=True) 
-
+# Add args
 def add_attribution(attrib = 'Attribution goes here', position = [.9, -0.01]):
     fig = plt.gcf()
     plt.figtext(position[0],position[1], attrib, ha="right", fontsize=14)#, bbox={"facecolor":"orange", "alpha":0.5, "pad":5})

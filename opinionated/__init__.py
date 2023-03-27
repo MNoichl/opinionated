@@ -39,6 +39,7 @@ fonts = [
     "Space Mono",
     "Roboto",
     "Jost",
+    "Titillium Web"
 ]
 
 
