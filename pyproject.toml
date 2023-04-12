@@ -13,8 +13,7 @@ author_email = "noichlmax@hotmail.co.uk"
 license = "MIT"
 long_description = "Add-on for Matplotlib to produce pretty hrbrtheme-like-plots plots"
 home_page = "https://github.com/MNoichl/opinionated"
-project_urls =
-    Source = "https://github.com/MNoichl/opinionated"
+project_urls = {Source = "https://github.com/MNoichl/opinionated"}
 
 [classifiers]
 Framework :: Matplotlib
