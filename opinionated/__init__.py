@@ -5,6 +5,7 @@ from matplotlib import font_manager as fm
 import pkg_resources
 from typing import Optional, Union, List, Tuple
 import os
+import shutil
 
 from .core import (
     download_googlefont,
@@ -21,10 +22,24 @@ __author__ = "Maximilian Noichl <noichlmax@hotmail.co.uk>"
 __all__ = []
 
 # register the included stylesheet in the mpl style library
-data_path = pkg_resources.resource_filename("opinionated", "data/")
-print(data_path)
-opinionated_stylesheets = mpl.style.core.read_style_directory(data_path)
-mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
+# data_path = pkg_resources.resource_filename("opinionated", "data/")
+# print(data_path)
+# opinionated_stylesheets = mpl.style.core.read_style_directory(data_path)
+# mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
+stylefiles = glob.glob(pkg_resources.resource_filename("opinionated", "data/") + '/*.mplstyle', recursive=True)
+print(stylefiles)
+# Find stylelib directory (where the *.mplstyle files go)
+mpl_stylelib_dir = os.path.join(matplotlib.get_configdir() ,"stylelib")
+if not os.path.exists(mpl_stylelib_dir):
+    os.makedirs(mpl_stylelib_dir)
+
+# Copy files over
+print("Installing styles into", mpl_stylelib_dir)
+for stylefile in stylefiles:
+    print(os.path.basename(stylefile))
+    shutil.copy(
+        stylefile, 
+        os.path.join(mpl_stylelib_dir, os.path.basename(stylefile)))
 
 # check if the font is already installed WE SHOULD DO THIS....
 
