@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "opinionated"
+version = "0.0.1"
+description = "Add-on for Matplotlib to produce pretty hrbrtheme-like-plots plots"
+authors = ["Maximilian Noichl <noichlmax@hotmail.co.uk>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/MNoichl/opinionated"
+repository = "https://github.com/MNoichl/opinionated"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+matplotlib = "*"
+seaborn = "*"
+
+[tool.poetry.dev-dependencies]
+better-setuptools-git-version = "*"
+
+[tool.poetry.package.include]
+patterns = ["opinionated/data/*.mplstyle"]
+
+[[tool.poetry.source]]
+name = "custom"
+url = "https://github.com/MNoichl/opinionated"
+
+[tool.poetry.classifiers]
+classifiers = [
+    "Framework :: Matplotlib",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+
+[tool.poetry.plugins."better-setuptools-git-version"]
+version-format = "{tag}.dev{sha}"
+starting-version = "v0.0.1"

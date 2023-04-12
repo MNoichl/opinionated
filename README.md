@@ -41,12 +41,12 @@ This certainly does look better than what the defaults would give you, right? â€
 
 ## Styles
 
-The style `opinionated_rc` makes use of the font `Roboto Condensed`, which is my favorite from the original hrbrthemes-package. But there are other styles that you can use. Generally I would advise to use the narrower fonts for plots with more, and the wider ones for fonts with less text. Right now there are also:
+The style `opinionated_rc` that we used above makes use of the font `Roboto Condensed`, which is my favorite from the original hrbrthemes-package. But there are other styles that you can use. Generally I would advise to use the narrower fonts for plots with more, and the wider ones for fonts with less text. Right now there are also:
 
 
 `opinionated_sg` which uses Florian Karsten's lovely space `Space Grotesk` font:
 
-    plt.style.use("opinions_space_grotesk")
+    plt.style.use("opinionated_sg")
     f, ax = plt.subplots(figsize=(10, 7))
     sns.scatterplot(x="bill_length_mm", y="flipper_length_mm", style='species',c='black',
                     data=penguins,s=100,)
@@ -58,7 +58,7 @@ The style `opinionated_rc` makes use of the font `Roboto Condensed`, which is my
 <img src="img/opinions_sg_example.png" width="672" />
 
 
-`opinionated_fsc` which uses  `Fira Sans Condensed`. This example also deomnstrates that when using faceted plots, it can sometimes be necessary to slightly adjust the title upwards, and the attribution downwards and to the left.
+`opinionated_fsc` which uses  `Fira Sans Condensed`. This example also demonstrates that when using faceted plots, it can sometimes be necessary to slightly adjust the title upwards, and the attribution downwards and to the left.
 
     plt.style.use("opinionated_fsc")
 
@@ -121,7 +121,7 @@ Which will result in something like the following:
 
 <img src="img/opinions_lobster_example.png" width="672" />
 
-If you want to get an overview over the installed fonts, you can run the following:
+If you want to get an overview over the installed fonts, you can run:
 
     from opinionated.core import show_installed_fonts
     show_installed_fonts()

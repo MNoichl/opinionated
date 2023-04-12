@@ -77,12 +77,41 @@ def update_matplotlib_fonts():
 
 def add_legend(*args, **kwargs):
     fig = plt.gcf()
+  
+
+    handles, labels = fig.axes[0].get_legend_handles_labels()
+    try:
+        is_scatter = type(handles[0]) == mpl.collections.PathCollection
+    except:
+        is_scatter = False
     
+    try:
+        is_line_plot = type(handles[0]) == mpl.lines.Line2D
+    except:
+        is_line_plot = False
+
+    
+    if is_scatter:
+        if not "handletextpad" in kwargs:
+            kwargs["handletextpad"] = 0.
+        if not "scatterpoints" in kwargs:
+            kwargs["scatterpoints"] = 1
+        if not "scatteryoffsets" in kwargs:
+            kwargs["scatteryoffsets"] = [0]
+
+
     if not "bbox_to_anchor" in kwargs:
-        kwargs["bbox_to_anchor"] = (1.2, .5)
+        kwargs["bbox_to_anchor"] = (1.24, .5)
+    # if is_line_plot:
+
     legend = plt.legend(*args, **kwargs)
     legend.get_title().set_fontweight('bold')
-    # return legend
+
+    if is_scatter:
+        [t.set_va('center_baseline') for t in legend.get_texts()]
+
+
+    return legend
 
     # ax.legend(bbox_to_anchor=(1.2, .5),
     #             borderaxespad=0.0,
