@@ -6,6 +6,8 @@ import pkg_resources
 from typing import Optional, Union, List, Tuple
 import os
 import shutil
+import glob
+
 
 from .core import (
     download_googlefont,
@@ -29,7 +31,7 @@ __all__ = []
 stylefiles = glob.glob(pkg_resources.resource_filename("opinionated", "data/") + '/*.mplstyle', recursive=True)
 print(stylefiles)
 # Find stylelib directory (where the *.mplstyle files go)
-mpl_stylelib_dir = os.path.join(matplotlib.get_configdir() ,"stylelib")
+mpl_stylelib_dir = os.path.join(mpl.get_configdir() ,"stylelib")
 if not os.path.exists(mpl_stylelib_dir):
     os.makedirs(mpl_stylelib_dir)
 
