@@ -26,7 +26,6 @@ install_requires = [
     "matplotlib",
     "seaborn"
 ]
-include_package_data = True
 
-[options.package_data]
+[tool.setuptools.package-data]
 opinionated = ["data/*.mplstyle"]
