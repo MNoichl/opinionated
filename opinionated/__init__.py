@@ -42,7 +42,9 @@ for stylefile in stylefiles:
     shutil.copy(
         stylefile, 
         os.path.join(mpl_stylelib_dir, os.path.basename(stylefile)))
-
+    
+# Update the list of available styles  
+plt.style.core.available[:] = sorted(plt.style.library.keys())
 # check if the font is already installed WE SHOULD DO THIS....
 
 fonts = [
