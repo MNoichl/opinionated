@@ -25,11 +25,11 @@ __author__ = "Maximilian Noichl <noichlmax@hotmail.co.uk>"
 __all__ = []
 
 # register the included stylesheet in the mpl style library
-# data_path = pkg_resources.resource_filename("opinionated", "data/")
+data_path = pkg_resources.resource_filename("opinionated", "data/")
 # print(data_path)
-# opinionated_stylesheets = mpl.style.core.read_style_directory(data_path)
-# mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
-# mpl.style.reload_library()
+opinionated_stylesheets = mpl.style.core.read_style_directory(data_path)
+mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
+mpl.style.reload_library()
 
 
 # 
@@ -49,7 +49,7 @@ mpl.style.reload_library()
 
 
 
-# check if the font is already installed WE SHOULD DO THIS....
+# check if the font is already installed (WE SHOULD DO THIS)....
 
 fonts = [
     "Roboto Condensed",
