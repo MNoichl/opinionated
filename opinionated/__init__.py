@@ -32,18 +32,12 @@ __all__ = []
 # mpl.style.reload_library()
 
 
-
+# 
 stylefiles = glob.glob(pkg_resources.resource_filename("opinionated", "data/") + '/*.mplstyle', recursive=True)
-print(stylefiles)
-# Find stylelib directory (where the *.mplstyle files go)
 mpl_stylelib_dir = os.path.join(mpl.get_configdir() ,"stylelib")
 if not os.path.exists(mpl_stylelib_dir):
     os.makedirs(mpl_stylelib_dir)
-
-# Copy files over
-print("Installing styles into", mpl_stylelib_dir)
 for stylefile in stylefiles:
-    print(os.path.basename(stylefile))
     shutil.copy(
         stylefile, 
         os.path.join(mpl_stylelib_dir, os.path.basename(stylefile)))
