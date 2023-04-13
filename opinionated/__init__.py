@@ -1,6 +1,7 @@
 """opinionated - A new Python package"""
 
 import matplotlib as mpl
+
 from matplotlib import font_manager as fm
 import pkg_resources
 from typing import Optional, Union, List, Tuple
@@ -44,7 +45,7 @@ for stylefile in stylefiles:
         os.path.join(mpl_stylelib_dir, os.path.basename(stylefile)))
     
 # Update the list of available styles  
-plt.style.core.available[:] = sorted(plt.style.library.keys())
+mpl.pyplot.style.core.available[:] = sorted(plt.style.library.keys())
 # check if the font is already installed WE SHOULD DO THIS....
 
 fonts = [
