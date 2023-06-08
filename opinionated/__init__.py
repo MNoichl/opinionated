@@ -30,7 +30,7 @@ data_path = pkg_resources.resource_filename("opinionated", "data/")
 opinionated_stylesheets = mpl.style.core.read_style_directory(data_path)
 mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
 mpl.style.reload_library()
-
+ 
 
 # 
 stylefiles = glob.glob(pkg_resources.resource_filename("opinionated", "data/") + '/*.mplstyle', recursive=True)
@@ -54,16 +54,16 @@ mpl.style.reload_library()
 fonts = [
     "Roboto Condensed",
     "Montserrat",
-    "Source Code Pro",
-    "Source Sans Pro",
-    "Fira Sans",
-    "Fira Sans Condensed",
-    "IBM Plex Sans",
-    "Space Grotesk",
-    "Space Mono",
-    "Roboto",
-    "Jost",
-    "Titillium Web"
+    # "Source Code Pro",
+    # "Source Sans Pro",
+    # "Fira Sans",
+    # "Fira Sans Condensed",
+    # "IBM Plex Sans",
+    # "Space Grotesk",
+    # "Space Mono",
+    # "Roboto",
+    # "Jost",
+    # "Titillium Web"
 ]
 
 
