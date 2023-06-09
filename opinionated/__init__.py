@@ -54,16 +54,16 @@ mpl.style.reload_library()
 fonts = [
     "Roboto Condensed",
     "Montserrat",
-    # "Source Code Pro",
-    # "Source Sans Pro",
-    # "Fira Sans",
-    # "Fira Sans Condensed",
-    # "IBM Plex Sans",
-    # "Space Grotesk",
-    # "Space Mono",
-    # "Roboto",
-    # "Jost",
-    # "Titillium Web"
+    "Source Code Pro",
+    "Source Sans Pro",
+    "Fira Sans",
+    "Fira Sans Condensed",
+    "IBM Plex Sans",
+    "Space Grotesk",
+    "Space Mono",
+    "Roboto",
+    "Jost",
+    "Titillium Web"
 ]
 
 
