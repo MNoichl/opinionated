@@ -6,6 +6,7 @@ from matplotlib import font_manager as fm
 import pkg_resources
 from typing import Optional, Union, List, Tuple
 import os
+import time
 import shutil
 import glob
 
@@ -66,6 +67,24 @@ fonts = [
     "Titillium Web"
 ]
 
+Model: GPT-4
+User
+
+fonts = [
+    "Roboto Condensed",
+    "Montserrat",
+    "Source Code Pro",
+    "Source Sans Pro",
+    "Fira Sans",
+    "Fira Sans Condensed",
+    "IBM Plex Sans",
+    "Space Grotesk",
+    "Space Mono",
+    "Roboto",
+    "Jost",
+    "Titillium Web"
+]
+
 
 def check_if_font_already_present(font):
     # check if a file that contains thefont name is already in the fonts folder:
@@ -88,6 +107,87 @@ update_matplotlib_fonts()
 
 
 
+
+# Monkeypatching matplotlib to change the legend font-width:
+# import matplotlib.axes
+# import matplotlib.pyplot as plt
+Make this code fail save in case a download fails (after retrying 3 times with 3 second pause). Make sure to produce useful, descriptive error messages.
+ChatGPT
+
+You can achieve this by wrapping your download function inside a loop that tries to download a font up to three times, and pauses for three seconds between each attempt. If all attempts fail, an error message will be logged. Here's an example of how you might modify your code to include this functionality:
+
+python
+import os
+import time
+
+fonts = [
+    "Roboto Condensed",
+    "Montserrat",
+    "Source Code Pro",
+    "Source Sans Pro",
+    "Fira Sans",
+    "Fira Sans Condensed",
+    "IBM Plex Sans",
+    "Space Grotesk",
+    "Space Mono",
+    "Roboto",
+    "Jost",
+    "Titillium Web"
+]
+
+def check_if_font_already_present(font):
+    # check if a file that contains the font name is already in the fonts folder:
+    try:
+        for file in [x.lower() for x in os.listdir("fonts")]:
+            if font.replace(" ", "").lower() in file:
+                return True
+        return False
+    except:
+        return False
+
+def download_font_with_retry(font, retries=3, delay=3):
+    for i in range(retries):
+        try:
+            print(f"Now downloading: {font}")
+            download_googlefont(font=font)
+            return  # return if the download was successful
+        except Exception as e:
+            if i < retries - 1:  # i is zero indexed
+                print(f"Attempt {i+1} to download {font} failed with error: {str(e)}. Retrying in {delay} seconds.")
+                time.sleep(delay)
+            else:
+                print(f"All attempts to download {font} failed. Please check your connection and the font name.")
+                raise
+
+for font in fonts:
+    if not check_if_font_already_present(font):
+        download_font_with_retry(font)
+
+update_matplotlib_fonts()
+
+
+
+# def check_if_font_already_present(font):
+#     # check if a file that contains thefont name is already in the fonts folder:
+#     try:
+#         for file in [x.lower() for x in os.listdir("fonts")]:
+#             if font.replace(" ", "").lower() in file:
+#                 return True
+#         return False
+#     except:
+#         return False
+
+
+# for font in fonts:
+#     if not check_if_font_already_present(font):
+#         print("Now downloading: " + font)
+#         download_googlefont(font=font)
+
+# update_matplotlib_fonts()
+
+
+
+##############################################################################
 
 # Monkeypatching matplotlib to change the legend font-width:
 # import matplotlib.axes
