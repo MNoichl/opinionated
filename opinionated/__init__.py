@@ -101,16 +101,16 @@ import time
 fonts = [
     "Roboto Condensed",
     "Montserrat",
-    "Source Code Pro",
-    "Source Sans Pro",
-    "Fira Sans",
-    "Fira Sans Condensed",
-    "IBM Plex Sans",
-    "Space Grotesk",
-    "Space Mono",
-    "Roboto",
-    "Jost",
-    "Titillium Web"
+    # "Source Code Pro",
+    # "Source Sans Pro",
+    # "Fira Sans",
+    # "Fira Sans Condensed",
+    # "IBM Plex Sans",
+    # "Space Grotesk",
+    # "Space Mono",
+    # "Roboto",
+    # "Jost",
+    # "Titillium Web"
 ]
 
 def check_if_font_already_present(font):
