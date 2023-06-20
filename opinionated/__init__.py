@@ -6,7 +6,7 @@ from matplotlib import font_manager as fm
 import pkg_resources
 from typing import Optional, Union, List, Tuple
 import os
-import time
+import time 
 import shutil
 import glob
 
@@ -67,42 +67,25 @@ fonts = [
     "Titillium Web"
 ]
 
-Model: GPT-4
-User
-
-fonts = [
-    "Roboto Condensed",
-    "Montserrat",
-    "Source Code Pro",
-    "Source Sans Pro",
-    "Fira Sans",
-    "Fira Sans Condensed",
-    "IBM Plex Sans",
-    "Space Grotesk",
-    "Space Mono",
-    "Roboto",
-    "Jost",
-    "Titillium Web"
-]
 
 
-def check_if_font_already_present(font):
-    # check if a file that contains thefont name is already in the fonts folder:
-    try:
-        for file in [x.lower() for x in os.listdir("fonts")]:
-            if font.replace(" ", "").lower() in file:
-                return True
-        return False
-    except:
-        return False
+# def check_if_font_already_present(font):
+#     # check if a file that contains thefont name is already in the fonts folder:
+#     try:
+#         for file in [x.lower() for x in os.listdir("fonts")]:
+#             if font.replace(" ", "").lower() in file:
+#                 return True
+#         return False
+#     except:
+#         return False
 
 
-for font in fonts:
-    if not check_if_font_already_present(font):
-        print("Now downloading: " + font)
-        download_googlefont(font=font)
+# for font in fonts:
+#     if not check_if_font_already_present(font):
+#         print("Now downloading: " + font)
+#         download_googlefont(font=font)
 
-update_matplotlib_fonts()
+# update_matplotlib_fonts()
 
 
 
@@ -111,12 +94,7 @@ update_matplotlib_fonts()
 # Monkeypatching matplotlib to change the legend font-width:
 # import matplotlib.axes
 # import matplotlib.pyplot as plt
-Make this code fail save in case a download fails (after retrying 3 times with 3 second pause). Make sure to produce useful, descriptive error messages.
-ChatGPT
 
-You can achieve this by wrapping your download function inside a loop that tries to download a font up to three times, and pauses for three seconds between each attempt. If all attempts fail, an error message will be logged. Here's an example of how you might modify your code to include this functionality:
-
-python
 import os
 import time
 
