@@ -11,8 +11,8 @@ author_email = "noichlmax@hotmail.co.uk"
 description = "Opinionated provides simple, clean stylesheets for plotting with matplotlib and seaborn."
 
 [options]
-zip_safe = False
-include_package_data = True
+zip_safe = "False"
+include_package_data = "True"
 packages = "opinionated"
 python_requires = ">=3.7, <11"
 install_requires = "\nmatplotlib\nseaborn\nrequests\nipython"
