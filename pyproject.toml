@@ -1,3 +1,4 @@
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+description = "opinionated provides simple, clean stylesheets for plotting with matplotlib and seaborn."
