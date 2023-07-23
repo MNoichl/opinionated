@@ -9,6 +9,10 @@ license = "MIT"
 author = "Maximilian Noichl"
 author_email = "noichlmax@hotmail.co.uk"
 description = "Opinionated provides simple, clean stylesheets for plotting with matplotlib and seaborn."
+long_description = "Opinionated provides simple, clean stylesheets for plotting with matplotlib and seaborn."
+long_description_content_type = "text/markdown"
+
+
 
 [options]
 zip_safe = "False"
