@@ -1,4 +1,21 @@
 [build-system]
-requires = ["setuptools"]
+requires = [ "setuptools", "wheel",]
 build-backend = "setuptools.build_meta"
-long_description = "Opinionated provides simple, clean stylesheets for plotting with matplotlib and seaborn."
+
+[metadata]
+name = "opinionated"
+url = "https://github.com/MNoichl/opinionated"
+license = "MIT"
+author = "Maximilian Noichl"
+author_email = "noichlmax@hotmail.co.uk"
+description = "Opinionated provides simple, clean stylesheets for plotting with matplotlib and seaborn."
+
+[options]
+zip_safe = False
+include_package_data = True
+packages = "opinionated"
+python_requires = ">=3.7, <11"
+install_requires = "\nmatplotlib\nseaborn\nrequests\nipython"
+
+["options.package_data"]
+opinionated = "data/*.mplstyle"
