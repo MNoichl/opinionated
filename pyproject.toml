@@ -1,25 +1,33 @@
 [build-system]
-requires = [ "setuptools", "wheel",]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 
-[metadata]
+[tool.poetry]
 name = "opinionated"
-url = "https://github.com/MNoichl/opinionated"
-license = "MIT"
-author = "Maximilian Noichl"
-author_email = "noichlmax@hotmail.co.uk"
+version = "0.0.1"
 description = "Opinionated provides simple, clean stylesheets for plotting with matplotlib and seaborn."
-long_description_content_type = "text/plain"
-long_description = """ 
-Opinionated provides simple, clean stylesheets for plotting with matplotlib and seaborn.
-"""
+authors = ["Maximilian Noichl <noichlmax@hotmail.co.uk>"]
+license = "MIT"
+readme = "README.md"  # Replace with the path to your README file if it's not README.md
 
-[options]
-zip_safe = "False"
-include_package_data = "True"
-packages = "opinionated"
-python_requires = ">=3.7, <11"
-install_requires = "\nmatplotlib\nseaborn\nrequests\nipython"
+[tool.poetry.dependencies]
+python = ">=3.7,<11"
+matplotlib = "*"
+seaborn = "*"
+requests = "*"
+ipython = "*"
 
-["options.package_data"]
-opinionated = "data/*.mplstyle"
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+
+[tool.poetry.package_data]
+opinionated = ["data/*.mplstyle"]
+
+[tool.poetry.build]
+include = ["data/*.mplstyle"]  # Optional: Include additional files in the package
+
+[[tool.poetry.source]]
+name = "legacy"
+url = "https://pypi.org/simple"
+secondary = true
