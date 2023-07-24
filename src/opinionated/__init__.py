@@ -1,4 +1,22 @@
-"""opinionated - A new Python package"""
+import sys
+
+if sys.version_info[:2] >= (3, 8):
+    # TODO: Import directly (no need for conditional) when `python_requires = >= 3.8`
+    from importlib.metadata import PackageNotFoundError, version  # pragma: no cover
+else:
+    from importlib_metadata import PackageNotFoundError, version  # pragma: no cover
+
+try:
+    # Change here if project is renamed and does not equal the package name
+    dist_name = __name__
+    __version__ = version(dist_name)
+except PackageNotFoundError:  # pragma: no cover
+    __version__ = "unknown"
+finally:
+    del version, PackageNotFoundError
+
+
+####################### IMPORTS  ##############################
 
 import matplotlib as mpl
 
@@ -20,10 +38,6 @@ from .core import (
     add_legend
 )
 
-
-# __version__ = pkg_resources.require("opinionated")[0].version
-__author__ = "Maximilian Noichl <noichlmax@hotmail.co.uk>"
-__all__ = []
 
 # register the included stylesheet in the mpl style library
 data_path = pkg_resources.resource_filename("opinionated", "data/")
@@ -68,32 +82,6 @@ fonts = [
 ]
 
 
-
-# def check_if_font_already_present(font):
-#     # check if a file that contains thefont name is already in the fonts folder:
-#     try:
-#         for file in [x.lower() for x in os.listdir("fonts")]:
-#             if font.replace(" ", "").lower() in file:
-#                 return True
-#         return False
-#     except:
-#         return False
-
-
-# for font in fonts:
-#     if not check_if_font_already_present(font):
-#         print("Now downloading: " + font)
-#         download_googlefont(font=font)
-
-# update_matplotlib_fonts()
-
-
-
-
-
-# Monkeypatching matplotlib to change the legend font-width:
-# import matplotlib.axes
-# import matplotlib.pyplot as plt
 
 import os
 import time
@@ -142,52 +130,3 @@ for font in fonts:
         download_font_with_retry(font)
 
 update_matplotlib_fonts()
-
-
-
-# def check_if_font_already_present(font):
-#     # check if a file that contains thefont name is already in the fonts folder:
-#     try:
-#         for file in [x.lower() for x in os.listdir("fonts")]:
-#             if font.replace(" ", "").lower() in file:
-#                 return True
-#         return False
-#     except:
-#         return False
-
-
-# for font in fonts:
-#     if not check_if_font_already_present(font):
-#         print("Now downloading: " + font)
-#         download_googlefont(font=font)
-
-# update_matplotlib_fonts()
-
-
-
-##############################################################################
-
-# Monkeypatching matplotlib to change the legend font-width:
-# import matplotlib.axes
-# import matplotlib.pyplot as plt
-# def legend_wrapper(*args, **kwargs):
-#     # Extract title from kwargs, if provided
-#     # print(kwargs)
-#     # title = kwargs.pop("title", None)
-
-#     # If title exists, make it bold
-#     # if title:
-#     #     title = "$\\bf{" + title + "}$"
-#     #     kwargs["title"] = title
-#     kwargs["bbox_to_anchor"] = (1.2, .5)
-#     legend = original_legend_func(*args, **kwargs)
-#     legend.get_title().set_fontweight('bold')
-
-#     # Call the original legend function with the modified title and kwargs
-#     return legend#original_legend_func(*args, **kwargs)
-
-# # Save the original legend function for internal use
-# original_legend_func = matplotlib.axes.Axes.legend
-
-# # Monkey patch the legend function
-# matplotlib.axes.Axes.legend = legend_wrapper
