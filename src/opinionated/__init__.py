@@ -27,6 +27,8 @@ import os
 import time 
 import shutil
 import glob
+import colormaps as cmaps
+
 
 
 from .core import (
