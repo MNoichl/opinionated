@@ -52,7 +52,7 @@ ways of setting titles, legends, etc. still work.
 
 Here’s the result:
 
-.. figure:: https://raw.githubusercontent.com/MNoichl/opinionated/master/img/opinions_rc_example.png
+.. figure:: https://raw.githubusercontent.com/MNoichl/opinionated/master/img/opinionated_rc_example.png
    :alt: img
 
 

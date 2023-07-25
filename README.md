@@ -32,7 +32,7 @@ And finally, you can slap on some additional information, using some convenience
 
 Here's the result:
 
-<img src="img/opinions_rc_example.png" width="472" />
+<img src="img/opinionated_rc_example.png" width="472" />
 
 This certainly does look better than what the defaults would give you, right? –
 
@@ -48,7 +48,7 @@ The style `opinionated_rc` that we used above uses the font `Roboto Condensed`, 
 
     plt.style.use("opinionated_sg")
     
-<img src="img/opinions_sg_example.png" width="472" />
+<img src="img/opinionated_sg_example.png" width="472" />
 
 
 `opinionated_fsc` which uses  `Fira Sans Condensed`. This example also demonstrates that when using faceted plots, it can sometimes be necessary to adjust the title upwards slightly, and the attribution downwards and to the left.
@@ -81,22 +81,22 @@ The style `opinionated_rc` that we used above uses the font `Roboto Condensed`, 
     plt.savefig('img/opinions_fira_sans_condensed_example.png',bbox_inches='tight',
                 dpi =400, transparent=False)
 
-<img src="img/opinions_fsc_example.png" width="472" />
+<img src="img/opinionated_fsc_example.png" width="472" />
 
 `opinionated_tw` which uses `Titillium Web` font, 
 
-<img src="img/opinions_tw_example.png" width="472" />
+<img src="img/opinionated_tw_example.png" width="472" />
 
 `opinionated_m` which uses `Montserrat` font, 
 
-<img src="img/opinions_m_example.png" width="472" />
+<img src="img/opinionated_m_example.png" width="472" />
 
 
 and 
 
 `opinionated_j` which   `Jost`, 
 
-<img src="img/opinions_j_example.png" width="472" />
+<img src="img/opinionated_j_example.png" width="472" />
 
 
 ## Additional fonts
