@@ -122,16 +122,17 @@ def add_attribution(attrib = 'Attribution goes here', position = [.9, -0.01]):
     fig = plt.gcf()
     plt.figtext(position[0],position[1], attrib, ha="right", fontsize=14)#, bbox={"facecolor":"orange", "alpha":0.5, "pad":5})
 
-def set_title_and_suptitle(title_string,sub_title_string,adjust_y=1.):
+def set_title_and_suptitle(title_string,sub_title_string, position_title = [.12, .97],
+                            position_sub_title = [.12, .918]):
     """
     Set the title and subtitle of a plot. The subtitle is set a bit lower than the title. 
     The adjust_y parameter can be used to adjust the vertical position of the two titles.
     Args:
         title_string (str): The title string
         sub_title_string (str): The subtitle string
-        adjust_y (float, optional): The vertical position of the two titles. Defaults to 1.
-
+        position_title (list, optional): The position of the title. Defaults to [.12, .97].
+        position_sub_title (list, optional): The position of the subtitle. Defaults to [.12, .918].
     """
     fig = plt.gcf()
-    plt.figtext( .12, .97 * adjust_y, title_string, fontsize=26, fontweight='bold', ha='left')
-    plt.figtext( .12, .918 * adjust_y, sub_title_string,  fontsize=14, fontweight='regular', ha='left')
+    plt.figtext( position_title[0], position_title[1], title_string, fontsize=26, fontweight='bold', ha='left')
+    plt.figtext( position_sub_title[0], position_sub_title[1], sub_title_string,  fontsize=14, fontweight='regular', ha='left')

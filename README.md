@@ -47,14 +47,7 @@ The style `opinionated_rc` that we used above uses the font `Roboto Condensed`, 
 `opinionated_sg` which uses Florian Karsten's lovely space `Space Grotesk` font:
 
     plt.style.use("opinionated_sg")
-    f, ax = plt.subplots(figsize=(10, 7))
-    sns.scatterplot(x="bill_length_mm", y="flipper_length_mm", style='species',c='black',
-                    data=penguins,s=100,)
-    opinionated.add_legend(title = 'Species')
-    opinionated.add_attribution('by Maximilian Noichl')
-    opinionated.set_title_and_suptitle('Penguins!','They are a perfect type of bird!')
-    plt.savefig('img/opinions_sg_example.png',bbox_inches='tight', dpi =400, transparent=False)
-
+    
 <img src="img/opinions_sg_example.png" width="472" />
 
 
@@ -88,22 +81,22 @@ The style `opinionated_rc` that we used above uses the font `Roboto Condensed`, 
     plt.savefig('img/opinions_fira_sans_condensed_example.png',bbox_inches='tight',
                 dpi =400, transparent=False)
 
-<img src="img/opinions_fira_sans_condensed_example.png" width="472" />
+<img src="img/opinions_fsc_example.png" width="472" />
 
 `opinionated_tw` which uses `Titillium Web` font, 
 
-<img src="img/opinions_titillium_example.png" width="472" />
+<img src="img/opinions_tw_example.png" width="472" />
 
 `opinionated_m` which uses `Montserrat` font, 
 
-<img src="img/opinions_montserrat_example.png" width="472" />
+<img src="img/opinions_m_example.png" width="472" />
 
 
 and 
 
 `opinionated_j` which   `Jost`, 
 
-<img src="img/opinions_jost_example.png" width="472" />
+<img src="img/opinions_j_example.png" width="472" />
 
 
 ## Additional fonts
@@ -119,7 +112,7 @@ You can download whichever font you want from Google Fonts, using the code in th
 
 Which will result in something like the following:
 
-<img src="img/opinions_lobster_example.png" width="472" />
+<img src="img/opinions_great_vibes_example.png" width="472" />
 
 If you want to get an overview of the installed fonts, you can run:
 
