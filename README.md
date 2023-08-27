@@ -10,7 +10,7 @@ The main application I had in mind was to increase the quality of plots in colab
 
 ## Installation
 
-    pip install git+https://github.com/MNoichl/opinionated.git#egg=opinionated
+    pip install opinionated
 
 
 ## Usage
