@@ -19,11 +19,14 @@ The package is very simple to use, you just import it and set the style you want
     import opinionated
     import matplotlib.pyplot as plt
     plt.style.use("opinionated_rc")
+    import colormaps as cmaps 
+    
+Note that opinionated automatically installs [`colormaps`](https://pratiman-91.github.io/colormaps/) by Pratiman Patel, which provides an easy interface to some of the best colormap-collections in python, like `cmocean`, `scientific` or  `Cartocolors`, among others. The usual matplotlib colormaps still work, of course!
 
 Then you do your plotting:
 
     f, ax = plt.subplots(figsize=(10, 7))
-    sns.scatterplot(x="bill_length_mm", y="flipper_length_mm", hue='species', data=penguins, s=100, alpha=0.9)
+    sns.scatterplot(x="bill_length_mm", y="flipper_length_mm", hue="species", data=penguins, alpha=.7, s= 70, palette=cmaps.bold[2:5]._colors)
 
 And finally, you can slap on some additional information, using some convenience functions with reasonable defaults. Of course, the usual ways of setting titles, legends, etc. still work.
 
