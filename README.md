@@ -17,6 +17,7 @@ The main application I had in mind was to increase the quality of plots in colab
 The package is very simple to use, you just import it and set the style you want:
 
     import opinionated
+    import matplotlib.pyplot as plt
     plt.style.use("opinionated_rc")
 
 Then you do your plotting:
