@@ -2,7 +2,7 @@
 
 `opinionated` provides simple, clean stylesheets for plotting with `matplotlib` and `seaborn`.
 
-It's modeled and named after hrbrthemes in R, by hrbrmstr, which are "Opinionated, typographic-centric ggplot2 themes". It's not meant to be an exact clone though, I have made a few different choices. 
+It's modeled and named after [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes) in R, by Bob Rudis, which are "Opinionated, typographic-centric ggplot2 themes". It's not meant to be an exact clone though, I have made a few different choices. 
 
 The main application I had in mind was to increase the quality of plots in colab-environments, where there is a very small range of preinstalled fonts. The package therefore automatically downloads fonts from GoogleFonts. But I think everything should also work on your local machine. Be aware though, that it's not super well-tested, and might e. g. fail with facets.
 
