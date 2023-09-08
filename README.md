@@ -106,9 +106,11 @@ If you want to get an overview of the installed fonts, you can run:
 If you use this software in your work, feel free to cite it using the following metadata:
 
 APA:
+
     Noichl, M. (2023). Opinionated: Simple, Clean Stylesheets for Plotting with Matplotlib and Seaborn (Version 0.0.2.8) [Computer software]. https://doi.org/10.5281/zenodo.8329780
 
 BibTeX:
+
     @software{Noichl_Opinionated_Simple_Clean_2023,
     author = {Noichl, Maximilian},
     doi = {10.5281/zenodo.8329780},
