@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/609649799.svg)](https://zenodo.org/badge/latestdoi/609649799)
+
 # Opinionated
 
 `opinionated` provides simple, clean stylesheets for plotting with `matplotlib` or `seaborn`.
