@@ -100,6 +100,24 @@ If you want to get an overview of the installed fonts, you can run:
 ## To-Do:
 
 - [ ] Make it play nice with facets!
+      
+## Citation
+
+If you use this software in your work, feel free to cite it using the following metadata:
+
+    Noichl, M. (2023). Opinionated: Simple, Clean Stylesheets for Plotting with Matplotlib and Seaborn (Version 0.0.2.8) [Computer software]. https://doi.org/10.5281/zenodo.8329780
+
+    
+    @software{Noichl_Opinionated_Simple_Clean_2023,
+    author = {Noichl, Maximilian},
+    doi = {10.5281/zenodo.8329780},
+    month = aug,
+    title = {{Opinionated: Simple, Clean Stylesheets for Plotting with Matplotlib and Seaborn}},
+    url = {https://github.com/MNoichl/opinionated},
+    version = {0.0.2.8},
+    year = {2023}
+    }
+
 
 ## Inspiration 
 
