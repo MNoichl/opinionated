@@ -50,6 +50,13 @@ This certainly does look better than what the defaults would give you, right? â€
 
 The style `opinionated_rc` that we used above uses the font `Roboto Condensed`, which is my favorite from the original hrbrthemes-package. But there are other styles that you can use. Generally, I would advise using the narrower fonts for plots with more, and the wider ones for fonts with less text. Right now, out of the box we also have available:
 
+`opinionated_minimal` which uses IBM Plex Sans (with some additional stylistic _opinions_):
+opinionated_minimal_example
+    plt.style.use("opinionated_minimal")
+    
+<img src="img/opinionated_sg_example.png" width="472" />
+
+
 `opinionated_sg` which uses Florian Karsten's lovely space `Space Grotesk` font:
 
     plt.style.use("opinionated_sg")
