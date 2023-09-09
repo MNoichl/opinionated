@@ -64,7 +64,7 @@ The style `opinionated_rc` that we used above uses the font `Roboto Condensed`, 
 plt.style.use("opinionated_minimal")
 ```
     
-<img src="img/opinionated_minimal_example.png" width="472" />
+<img src="img/minimal.png" width="472" />
 
 
 `opinionated_sg` which uses Florian Karsten's lovely space `Space Grotesk` font:
