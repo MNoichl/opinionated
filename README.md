@@ -61,10 +61,10 @@ The style `opinionated_rc` that we used above uses the font `Roboto Condensed`, 
 `opinionated_minimal` which uses IBM Plex Sans (with some additional stylistic _opinions_):  
 
 ```python
-plt.style.use("opinionated_minimal")
+plt.style.use("opinionated_min")
 ```
     
-<img src="img/minimal.png" width="472" />
+<img src="img/opinionated_min_example.png" width="472" />
 
 
 `opinionated_sg` which uses Florian Karsten's lovely space `Space Grotesk` font:
