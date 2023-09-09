@@ -12,29 +12,37 @@ The main application I had in mind was to increase the quality of plots in Googl
 
 ## Installation
 
-    pip install opinionated
+```bash
+$ python3 -m pip install opinionated
+```
 
 
 ## Usage
 The package is very simple to use, you just import it and set the style you want:
 
-    import opinionated
-    import matplotlib.pyplot as plt
-    plt.style.use("opinionated_rc")
-    import colormaps as cmaps 
-    
+```python
+import opinionated
+import matplotlib.pyplot as plt
+plt.style.use("opinionated_rc")
+import colormaps as cmaps 
+```
+
 Note that opinionated automatically installs [`colormaps`](https://pratiman-91.github.io/colormaps/) by Pratiman Patel, which provides an easy interface to some of the best colormap-collections in python, like `cmocean`, `scientific` or  `Cartocolors`, among others. The usual matplotlib colormaps still work, of course!
 
 Then you do your plotting:
 
-    f, ax = plt.subplots(figsize=(10, 7))
-    sns.scatterplot(x="bill_length_mm", y="flipper_length_mm", hue="species", data=penguins, alpha=.7, s= 70, palette=cmaps.bold[2:5]._colors)
+```python
+f, ax = plt.subplots(figsize=(10, 7))
+sns.scatterplot(x="bill_length_mm", y="flipper_length_mm", hue="species", data=penguins, alpha=.7, s= 70, palette=cmaps.bold[2:5]._colors)
+```
 
 And finally, you can slap on some additional information, using some convenience functions with reasonable defaults. Of course, the usual ways of setting titles, legends, etc. still work.
 
-    opinionated.add_legend(title='Species')
-    opinionated.add_attribution('by Maximilian Noichl')
-    opinionated.set_title_and_suptitle('Penguins!','They are an excellent type of bird!')
+```python
+opinionated.add_legend(title='Species')
+opinionated.add_attribution('by Maximilian Noichl')
+opinionated.set_title_and_suptitle('Penguins!','They are an excellent type of bird!')
+```
 
 Here's the result:
 
@@ -61,7 +69,9 @@ plt.style.use("opinionated_minimal")
 
 `opinionated_sg` which uses Florian Karsten's lovely space `Space Grotesk` font:
 
-    plt.style.use("opinionated_sg")
+```python
+plt.style.use("opinionated_sg")
+```
     
 <img src="img/opinionated_sg_example.png" width="472" />
 
@@ -87,13 +97,14 @@ and
 ## Additional fonts
 You can download whichever font you want from Google Fonts, using the code in the package. So nothing will keep you from doing something like: 
 
-    from opinionated.core import download_googlefont
-    download_googlefont('Great Vibes', add_to_cache=True)
-    plt.rc('font', family='Great Vibes') 
+```python
+from opinionated.core import download_googlefont
+download_googlefont('Great Vibes', add_to_cache=True)
+plt.rc('font', family='Great Vibes')
+f, ax = plt.subplots(figsize=(10, 7))
+plt.scatter(penguins["bill_length_mm"],penguins["flipper_length_mm"],  marker="$\u2764$", s=100,c='#a81a26',alpha = 0.7)
+```
 
-    f, ax = plt.subplots(figsize=(10, 7))
-    plt.scatter(penguins["bill_length_mm"],penguins["flipper_length_mm"],  marker="$\u2764$",
-                s=100,c='#a81a26',alpha = 0.7)
 
 Which will result in something like the following:
 
@@ -103,8 +114,10 @@ Which will result in something like the following:
 
 If you want to get an overview of the installed fonts, you can run:
 
-    from opinionated.core import show_installed_fonts
-    show_installed_fonts()
+```python
+from opinionated.core import show_installed_fonts
+show_installed_fonts()
+```
 
 ## To-Do:
 
@@ -120,7 +133,8 @@ APA:
 
 BibTeX:
 
-    @software{Noichl_Opinionated_Simple_Clean_2023,
+```bibtex
+@software{Noichl_Opinionated_Simple_Clean_2023,
     author = {Noichl, Maximilian},
     doi = {10.5281/zenodo.8329780},
     month = aug,
@@ -128,7 +142,8 @@ BibTeX:
     url = {https://github.com/MNoichl/opinionated},
     version = {0.0.2.8},
     year = {2023}
-    }
+}
+```
 
 
 ## Inspiration 
