@@ -8,24 +8,6 @@ import time
 from pathlib import Path
 import sys
 
-if sys.version_info[:2] >= (3, 8):
-    # TODO: Import directly (no need for conditional) when `python_requires = >= 3.8`
-    from importlib.metadata import PackageNotFoundError, version  # pragma: no cover
-else:
-    from importlib_metadata import PackageNotFoundError, version  # pragma: no cover
-
-try:
-    # Change here if project is renamed and does not equal the package name
-    dist_name = __name__
-    __version__ = version(dist_name)
-except PackageNotFoundError:  # pragma: no cover
-    __version__ = "unknown"
-finally:
-    del version, PackageNotFoundError
-
-
-####################### IMPORTS  ##############################
-
 import matplotlib as mpl
 
 # from matplotlib import font_manager as fm
@@ -40,6 +22,8 @@ import shutil
 
 
 from .core import (
+    HERE,
+    FONTS_DIR,
     download_googlefont,
     # show_installed_fonts,
     update_matplotlib_fonts,
@@ -47,6 +31,32 @@ from .core import (
     # set_title_and_suptitle,
     # add_legend
 )
+
+
+PYTHON_VERSION = [int(i) for i in sys.version.split(' ')[0].split('.')]
+# HERE = Path(os.path.abspath(__file__)).parent
+# PROJECT_DIR = HERE.parent.parent
+# FONTS_DIR = PROJECT_DIR.joinpath('fonts')
+# FONTS_DIR.mkdir(parents=True, exist_ok=True)
+# if PYTHON_VERSION[0] >=3 and PYTHON_VERSION[1] >= 8:
+#     from importlib.metadata import PackageNotFoundError, version
+# else:
+#     from importlib.metadata import PackageNotFoundError,
+# if sys.version_info[:2] >= (3, 8):
+#     # TODO: Import directly (no need for conditional) when `python_requires = >= 3.8`
+#     from importlib.metadata import PackageNotFoundError, version  # pragma: no cover
+# else:
+#     from importlib_metadata import PackageNotFoundError, version  # pragma: no cover
+
+# try:
+#     # Change here if project is renamed and does not equal the package name
+#     dist_name = __name__
+#     __version__ = version(dist_name)
+# except PackageNotFoundError:  # pragma: no cover
+#     __version__ = "unknown"
+# finally:
+#     del version, PackageNotFoundError
+
 
 
 # register the included stylesheet in the mpl style library
@@ -77,52 +87,28 @@ mpl.style.reload_library()
 
 # check if the font is already installed (WE SHOULD DO THIS)....
 
-fonts = [
-    "Roboto Condensed",
-    "Montserrat",
-    "Source Code Pro",
-    "Source Sans Pro",
-    "Fira Sans",
-    "Fira Sans Condensed",
-    "IBM Plex Sans",
-    "Space Grotesk",
-    "Space Mono",
-    "Roboto",
-    "Jost",
-    "Titillium Web"
-]
+FONT_NAMES = {
+    'Fira Sans',
+    'Fira Sans Condensed',
+    'IBM Plex Sans',
+    'Jost',
+    'Montserrat',
+    'Roboto',
+    'Roboto Condensed',
+    'Source Code Pro',
+    # 'Source Sans Pro',
+    'Space Grotesk',
+    'Space Mono',
+    'Titillium Web',
+    # 'Titillium WebRoboto Condensed'
+}
 
-fonts = [
-    "Roboto Condensed",
-    "Montserrat",
-    "Source Code Pro",
-    # "Source Sans Pro",
-    "Fira Sans",
-    "Fira Sans Condensed",
-    "IBM Plex Sans",
-    "Space Grotesk",
-    "Space Mono",
-    "Roboto",
-    "Jost",
-    "Titillium Web"
+FONT_PATHS = [
+    FONTS_DIR.joinpath(f) for f in FONT_NAMES
 ]
 
 def check_if_font_already_present(font):
-    # check if a file that contains the font name is already in the fonts folder:
-    try:
-        # return (
-        #     any([
-        #         font.replace(" ", "").lower() in file
-        #         for file in [x.lower() for x in os.listdir("fonts")]
-        #     ])
-        # )
-        # )
-        for file in [x.lower() for x in os.listdir("fonts")]:
-            if font.replace(" ", "").lower() in file:
-                return True
-        return False
-    except Exception:
-        return False
+    return FONTS_DIR.joinpath(font).exists()
 
 def download_font_with_retry(font, retries=3, delay=3):
     for i in range(retries):
@@ -144,7 +130,11 @@ def download_font_with_retry(font, retries=3, delay=3):
                 )
                 raise
 
-for font in fonts:
+
+for font in FONT_NAMES:
+    if FONTS_DIR.joinpath(f"{font}.zip").is_file():
+        print(f"{font} already downloaded, continuing!")
+        continue
     if not check_if_font_already_present(font):
         download_font_with_retry(font)
 

@@ -18,9 +18,16 @@ import matplotlib.pyplot as plt
 from matplotlib import font_manager as fm
 from IPython.core.display import HTML
 
+HERE = Path(os.path.abspath(__file__)).parent
+PROJECT_DIR = HERE.parent.parent
+FONTS_DIR = PROJECT_DIR.joinpath('fonts')
+FONTS_DIR.mkdir(parents=True, exist_ok=True)
 
 # download fonts from google fonts and save them in the fonts folder:
-def download_googlefont(font='IBM Plex Sans', add_to_cache=False):
+def download_googlefont(
+    font='IBM Plex Sans',
+    add_to_cache=False
+):
     """download a font from google fonts and save it in the fonts folder
 
     Args:
@@ -28,19 +35,28 @@ def download_googlefont(font='IBM Plex Sans', add_to_cache=False):
         Must be the name used by googlefonts. Defaults to 'Roboto Condensed'.
     """
     # download the font
-    url = f'https://fonts.google.com/download?family={font}'
-    r = requests.get(url)
-    z = zipfile.ZipFile(io.BytesIO(r.content))
-    # extract into the package folder
-    font_folder = Path(opinionated.__file__).parent / 'fonts'
-    z.extractall(font_folder)
-    print(f'Font saved to: {font_folder}')
+    from zipfile import ZipFile
+    try:
+        r = requests.get(f'https://fonts.google.com/download?family={font}')
+        z = zipfile.ZipFile(io.BytesIO(r.content))
+        zip_fp = FONTS_DIR.joinpath(f'{font}.zip')
+        with ZipFile(zip_fp, 'w') as zip:
+            # zip.writestr('name_of_file_in_archive', r.content) #str(io.BytesIO(r.content)))
+            zip.writestr('name_of_file_in_archive', r.content)
+        # extract into the package folder
+        z.extractall(FONTS_DIR)
+        print(f'Font saved to: {FONTS_DIR}/{font}')
+    except Exception:
+        print(f'Failed to download font: {font}, skipping!')
     if add_to_cache:
         update_matplotlib_fonts()
 
 
 def make_html(fontname):
-    """Make a HTML snippet to display a font in a notebook. Utility used by show_installed_fonts()."""
+    """
+    Make a HTML snippet to display a font in a notebook.
+    Utility used by show_installed_fonts().
+    """
     return (
         f"<p>{fontname}: <span style='font-family:{fontname};"
         f"font-size: 24px;'>{fontname}</p>"
