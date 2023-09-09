@@ -1,3 +1,11 @@
+"""
+src/opinionated/__init__.py
+"""
+from __future__ import absolute_import, annotations, division, print_function
+import os
+import time
+
+from pathlib import Path
 import sys
 
 if sys.version_info[:2] >= (3, 8):
@@ -20,24 +28,24 @@ finally:
 
 import matplotlib as mpl
 
-from matplotlib import font_manager as fm
+# from matplotlib import font_manager as fm
 import pkg_resources
-from typing import Optional, Union, List, Tuple
-import os
-import time 
+# from typing import Optional
+# import os
+# import time 
 import shutil
-import glob
-import colormaps as cmaps
+# import glob
+# import colormaps as cmaps
 
 
 
 from .core import (
     download_googlefont,
-    show_installed_fonts,
+    # show_installed_fonts,
     update_matplotlib_fonts,
-    add_attribution,
-    set_title_and_suptitle,
-    add_legend
+    # add_attribution,
+    # set_title_and_suptitle,
+    # add_legend
 )
 
 
@@ -50,21 +58,22 @@ mpl.style.reload_library()
  
 
 # 
-stylefiles = glob.glob(pkg_resources.resource_filename("opinionated", "data/") + '/*.mplstyle', recursive=True)
-mpl_stylelib_dir = os.path.join(mpl.get_configdir() ,"stylelib")
-if not os.path.exists(mpl_stylelib_dir):
-    os.makedirs(mpl_stylelib_dir)
+stylefiles = Path(
+    pkg_resources.resource_filename("opinionated", "data/")
+).rglob('*.mplstyle')
+mpl_stylelib_dir = Path(mpl.get_configdir()).joinpath('stylelib')
+mpl_stylelib_dir.mkdir(parents=True, exist_ok=True)
+# mpl_stylelib_dir = os.path.join(mpl.get_configdir() ,"stylelib")
 for stylefile in stylefiles:
     shutil.copy(
-        stylefile, 
-        os.path.join(mpl_stylelib_dir, os.path.basename(stylefile)))
+        stylefile,
+        mpl_stylelib_dir.joinpath(os.path.basename(stylefile))
+        # os.path.join(mpl_stylelib_dir, os.path.basename(stylefile))
+    )
     
 # # Update the list of available styles  
 mpl.pyplot.style.core.available[:] = sorted(mpl.pyplot.style.library.keys())
 mpl.style.reload_library()
-
-
-
 
 # check if the font is already installed (WE SHOULD DO THIS)....
 
@@ -82,11 +91,6 @@ fonts = [
     "Jost",
     "Titillium Web"
 ]
-
-
-
-import os
-import time
 
 fonts = [
     "Roboto Condensed",
@@ -106,11 +110,18 @@ fonts = [
 def check_if_font_already_present(font):
     # check if a file that contains the font name is already in the fonts folder:
     try:
+        # return (
+        #     any([
+        #         font.replace(" ", "").lower() in file
+        #         for file in [x.lower() for x in os.listdir("fonts")]
+        #     ])
+        # )
+        # )
         for file in [x.lower() for x in os.listdir("fonts")]:
             if font.replace(" ", "").lower() in file:
                 return True
         return False
-    except:
+    except Exception:
         return False
 
 def download_font_with_retry(font, retries=3, delay=3):
@@ -121,10 +132,16 @@ def download_font_with_retry(font, retries=3, delay=3):
             return  # return if the download was successful
         except Exception as e:
             if i < retries - 1:  # i is zero indexed
-                print(f"Attempt {i+1} to download {font} failed with error: {str(e)}. Retrying in {delay} seconds.")
+                print(
+                    f"Attempt {i+1} to download {font} failed with error:"
+                    f"{str(e)}. Retrying in {delay} seconds."
+                )
                 time.sleep(delay)
             else:
-                print(f"All attempts to download {font} failed. Please check your connection and the font name.")
+                print(
+                    f"All attempts to download {font} failed."
+                    "Please check your connection and the font name."
+                )
                 raise
 
 for font in fonts:
