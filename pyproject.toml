@@ -37,7 +37,7 @@ classifiers = [
 dependencies = [
   "matplotlib",
   "seaborn",
-  "reqests",
+  "requests",
   "colormaps",
 ]
 dynamic = ["version"]
