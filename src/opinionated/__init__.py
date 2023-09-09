@@ -21,16 +21,28 @@ import shutil
 
 
 
-from .core import (
-    HERE,
+from opinionated.core import (
     FONTS_DIR,
+    STYLES_DIR,
     download_googlefont,
-    # show_installed_fonts,
     update_matplotlib_fonts,
-    # add_attribution,
-    # set_title_and_suptitle,
-    # add_legend
 )
+
+from opinionated.utils import (
+    add_legend,
+    # add_attribution,
+    set_title_and_suptitle
+)
+
+__all__ = [
+    'FONTS_DIR',
+    'STYLES_DIR',
+    'download_googlefont',
+    'update_matplotlib_fonts',
+    'add_legend',
+    # 'add_attribution',
+    'set_title_and_suptitle'
+]
 
 
 PYTHON_VERSION = [int(i) for i in sys.version.split(' ')[0].split('.')]
@@ -58,33 +70,33 @@ PYTHON_VERSION = [int(i) for i in sys.version.split(' ')[0].split('.')]
 #     del version, PackageNotFoundError
 
 
+def reload_styles():
+    # register the included stylesheet in the mpl style library
+    # data_path = pkg_resources.resource_filename("opinionated", "data/")
+    # print(data_path)
+    opinionated_stylesheets = mpl.style.core.read_style_directory(STYLES_DIR)
+    mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
+    mpl.style.reload_library()
+    stylefiles = Path(
+        pkg_resources.resource_filename("opinionated", "data/")
+    ).rglob('*.mplstyle')
+    STYLE_FILES = [STYLES_DIR.rglob('*.mplstyle')]
+    mpl_stylelib_dir = Path(mpl.get_configdir()).joinpath('stylelib')
+    mpl_stylelib_dir.mkdir(parents=True, exist_ok=True)
+    # mpl_stylelib_dir = os.path.join(mpl.get_configdir() ,"stylelib")
+    for stylefile in stylefiles:
+        shutil.copy(
+            stylefile,
+            mpl_stylelib_dir.joinpath(os.path.basename(stylefile))
+            # os.path.join(mpl_stylelib_dir, os.path.basename(stylefile))
+        )
+        
+    # # Update the list of available styles  
+    mpl.pyplot.style.core.available[:] = sorted(mpl.pyplot.style.library.keys())
+    mpl.style.reload_library()
 
-# register the included stylesheet in the mpl style library
-data_path = pkg_resources.resource_filename("opinionated", "data/")
-# print(data_path)
-opinionated_stylesheets = mpl.style.core.read_style_directory(data_path)
-mpl.style.core.update_nested_dict(mpl.style.library, opinionated_stylesheets)
-mpl.style.reload_library()
- 
 
 # 
-stylefiles = Path(
-    pkg_resources.resource_filename("opinionated", "data/")
-).rglob('*.mplstyle')
-mpl_stylelib_dir = Path(mpl.get_configdir()).joinpath('stylelib')
-mpl_stylelib_dir.mkdir(parents=True, exist_ok=True)
-# mpl_stylelib_dir = os.path.join(mpl.get_configdir() ,"stylelib")
-for stylefile in stylefiles:
-    shutil.copy(
-        stylefile,
-        mpl_stylelib_dir.joinpath(os.path.basename(stylefile))
-        # os.path.join(mpl_stylelib_dir, os.path.basename(stylefile))
-    )
-    
-# # Update the list of available styles  
-mpl.pyplot.style.core.available[:] = sorted(mpl.pyplot.style.library.keys())
-mpl.style.reload_library()
-
 # check if the font is already installed (WE SHOULD DO THIS)....
 
 FONT_NAMES = {
@@ -139,3 +151,4 @@ for font in FONT_NAMES:
         download_font_with_retry(font)
 
 update_matplotlib_fonts()
+reload_styles()

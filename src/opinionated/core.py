@@ -20,8 +20,12 @@ from IPython.core.display import HTML
 
 HERE = Path(os.path.abspath(__file__)).parent
 PROJECT_DIR = HERE.parent.parent
+
 FONTS_DIR = PROJECT_DIR.joinpath('fonts')
+STYLES_DIR = PROJECT_DIR.joinpath('mplstyles')
+
 FONTS_DIR.mkdir(parents=True, exist_ok=True)
+STYLES_DIR.mkdir(parents=True, exist_ok=True)
 
 # download fonts from google fonts and save them in the fonts folder:
 def download_googlefont(
