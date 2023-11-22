@@ -23,7 +23,7 @@ HERE = Path(os.path.abspath(__file__)).parent
 PROJECT_DIR = HERE.parent.parent
 
 FONTS_DIR = PROJECT_DIR.joinpath('fonts')
-STYLES_DIR = PROJECT_DIR.joinpath('stylefiles')
+STYLES_DIR = HERE.joinpath('stylefiles')
 
 FONTS_DIR.mkdir(parents=True, exist_ok=True)
 STYLES_DIR.mkdir(parents=True, exist_ok=True)
