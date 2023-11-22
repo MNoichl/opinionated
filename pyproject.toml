@@ -56,9 +56,9 @@ dev = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/MNoichl/opinionated"
-Issues = "https://github.com/MNoichl/opinionated/issues"
-Source = "https://github.com/MNoichl/opinionated"
+Documentation = "https://github.com/saforem2/opinionated"
+Issues = "https://github.com/saforem2/opinionated/issues"
+Source = "https://github.com/saforem2/opinionated"
 
 [tool.hatch.version]
 path = "src/opinionated/__about__.py"
