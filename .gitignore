@@ -1,3 +1,5 @@
+*.bak
+*.jukit
 *__pycache__*
 # Temporary and binary files
 *~
