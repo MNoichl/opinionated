@@ -1,7 +1,7 @@
 font.family:  sans-serif
 font.size:    12.0
 
-font.serif:      DejaVu Serif, Bitstream Vera Serif, Computer Modern Roman, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
+font.serif:      IBM Plex Serif, Bitstream Vera Serif, Computer Modern Roman, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
 font.sans-serif: IBM Plex Sans, DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
 font.cursive:    Apple Chancery, Textile, Zapf Chancery, Sand, Script MT, Felipa, Comic Neue, Comic Sans MS, cursive
 font.fantasy:    Chicago, Charcoal, Impact, Western, Humor Sans, xkcd, fantasy
@@ -13,7 +13,7 @@ axes.edgecolor:     none   # axes edge color
 axes.grid:          True   # display grid or not
 axes.titlecolor:    "#838383"    # color of the axes title, auto falls back to
                              # text.color as default value
-axes.labelcolor:    "#939393"
+axes.labelcolor:    "#838383"
                            # https://en.wikipedia.org/wiki/Plus_and_minus_signs#Character_codes
 axes.prop_cycle: cycler('color', ["#2196F3", "#EF5350", "#4CAF50", "#FFA726", "#AE81FF", "#ffeb3b", "#EC407A", "#009688", "#CFCFCF"])
 xtick.color:         none   # color of the ticks
@@ -41,8 +41,8 @@ legend.labelcolor:    "#838383"
 
 grid.color:     "#838383"  # grid color
 grid.linestyle: --          # solid
-grid.linewidth: 0.5        # in points
-grid.alpha:     0.3        # transparency, between 0.0 and 1.0
+grid.linewidth: 0.4        # in points
+grid.alpha:     0.25        # transparency, between 0.0 and 1.0
 
 figure.figsize:     12.4, 4.8  # figure size in inches
 figure.facecolor:   none     # figure face color
