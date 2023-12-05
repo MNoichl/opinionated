@@ -52,7 +52,10 @@ os.environ['PROJECT_DIR'] = os.path.abspath(PROJECT_DIR)
 # ]
 
 
-def reload_styles(outdir: Optional[os.PathLike] = None):
+def reload_styles(
+        outdir: Optional[os.PathLike] = None,
+        verbose: Optional[bool] = False,
+):
     outdir = (
         Path(mpl.get_configdir()).joinpath('stylelib')
         if outdir is None else Path(outdir)
@@ -60,7 +63,8 @@ def reload_styles(outdir: Optional[os.PathLike] = None):
     outdir.mkdir(parents=True, exist_ok=True)
     for src in STYLES.values():
         dst = outdir.joinpath(Path(src).stem)
-        log.debug(f"Copying {src} to {dst}")
+        if verbose:
+            log.debug(f"Copying {src} to {dst}")
         shutil.copy2(src, dst)
 
     plt.style.reload_library()
