@@ -32,22 +32,22 @@ STYLE_FILES = list(STYLES_DIR.rglob('*.mplstyle'))
 STYLES = {f.stem: f.as_posix() for f in STYLE_FILES}
 
 FONT_NAMES = (
-    'Fira Sans',
-    'Fira Sans Condensed',
+    # 'Fira Sans',
+    # 'Fira Sans Condensed',
     'IBM Plex Sans',
     'IBM Plex Sans Condensed',
     'IBM Plex Serif',
-    'Jost',
-    'Montserrat',
-    'Roboto',
-    'Roboto Condensed',
-    'Source Code Pro',
-    'Source Sans Pro',
-    'Space Grotesk',
-    'Space Mono',
-    'Titillium Web',
-    'Titillium WebRoboto Condensed',
-    'Shadows Into Light Two'
+    # 'Jost',
+    # 'Montserrat',
+    # 'Roboto',
+    # 'Roboto Condensed',
+    # 'Source Code Pro',
+    # 'Source Sans Pro',
+    # 'Space Grotesk',
+    # 'Space Mono',
+    # 'Titillium Web',
+    # 'Titillium WebRoboto Condensed',
+    # 'Shadows Into Light Two'
 )
 
 FONTS = {
@@ -109,12 +109,13 @@ def make_html(fontname):
 
 def show_installed_fonts():
     """
-    Show all installed fonts in a columnized HTML table. Works in notebooks only.
+    Show all installed fonts in a columnized HTML table. Works in notebooks
+    only.
     """
     code = (
         "\n".join(
             [
-                make_html(font) for font in 
+                make_html(font) for font in
                 sorted(set([f.name for f in fm.fontManager.ttflist]))
             ]
         )
@@ -124,7 +125,7 @@ def show_installed_fonts():
 
 def update_matplotlib_fonts():
     """Update matplotlib's font cache.
-    Useful if you downloaded googlefonts to the fonts folder 
+    Useful if you downloaded googlefonts to the fonts folder
     (with download_googlefont) and want to use them in matplotlib.
     """
     for font_file in fm.findSystemFonts(fontpaths=str(FONTS_DIR)):
@@ -141,10 +142,11 @@ def update_matplotlib_fonts():
 
 
 def add_legend(*args, **kwargs):
-    fig = plt.gcf()
-    ax = plt.gca()
+    fig: plt.Figure = plt.gcf()  # type:ignore
+    ax: plt.Axes = plt.gca()  # type:ignore
     handles, _ = fig.axes[0].get_legend_handles_labels()
-    is_scatter = (type(handles[0]) == mpl.collections.PathCollection)
+    is_scatter = isinstance(handles[0], mpl.collections.PathCollection)
+    # is_scatter = (type(handles[0]) == mpl.collections.PathCollection)
     # is_line_plot = (type(handles[0]) == mpl.lines.Line2D)
     # kwargs |= {"bbox_to_anchor": (1.05, .5)}
     if "bbox_to_anchor" not in kwargs:
@@ -168,7 +170,11 @@ def add_attribution(
         position: Optional[tuple[int, int]] = None,
 ):
     # fig = plt.gcf()
-    #, bbox={"facecolor":"orange", "alpha":0.5, "pad":5}
+    # bbox = {
+    #     "facecolor":"orange",
+    #     "alpha":0.5,
+    #     "pad":5
+    # }
     loc = (.9, -0.01) if position is None else position
     plt.figtext(
         loc[0],
