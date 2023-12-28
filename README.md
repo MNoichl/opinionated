@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+> **Moved to** [**`ambivalent`**](https://github.com/saforem2/ambivalent)[^moved]
+
+[^moved]: As of 2023-12-28.
+
+<details closed><summary><h2>Old <code>README</code></h2></summary>
+
 [![DOI](https://zenodo.org/badge/609649799.svg)](https://zenodo.org/badge/latestdoi/609649799)
 
 # Opinionated
@@ -152,3 +159,4 @@ https://github.com/hrbrmstr/hrbrthemes
 
 https://github.com/dhaitz/mplcyberpunk
 
+</details>
