@@ -1,9 +1,105 @@
 [build-system]
-# AVOID CHANGING REQUIRES: IT WILL BE UPDATED BY PYSCAFFOLD!
-requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+# [build-system]
+# # AVOID CHANGING REQUIRES: IT WILL BE UPDATED BY PYSCAFFOLD!
+# requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5"]
+# build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
 # For smarter version schemes and other configuration options,
 # check out https://github.com/pypa/setuptools_scm
 version_scheme = "no-guess-dev"
+
+
+[project]
+name = "opinionated"
+description = 'opinionated provides simple, clean stylesheets for plotting with matplotlib and seaborn.'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "MNoichl", email = "noichlmax@hotmail.co.uk" },
+  { name = "Sam Foreman", email = "saforem2@gmail.com" },
+]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "matplotlib",
+  "seaborn",
+  "requests",
+  "colormaps",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+  "pudb",
+  "nodejs",
+  "pynvim",
+  "neovim",
+  "ruff",
+  "ruff-lsp",
+  "pyproject-flake8",
+  "ipython",
+  "ptipython",
+]
+
+[project.urls]
+Documentation = "https://github.com/saforem2/opinionated"
+Issues = "https://github.com/saforem2/opinionated/issues"
+Source = "https://github.com/saforem2/opinionated"
+
+[tool.hatch.version]
+path = "src/opinionated/__about__.py"
+
+[tool.hatch.build]
+exclude = [
+  "src/opinionated/outputs/",
+  "**old**",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+
+[tool.hatch.build.targets.sdist]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/opinionated"]
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pytest",
+  "pytest-cov",
+]
+[tool.hatch.envs.default.scripts]
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/opinionated --cov=tests"
+no-cov = "cov --no-cov"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["38", "39", "310", "311"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+  "src/opinionated/__about__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]

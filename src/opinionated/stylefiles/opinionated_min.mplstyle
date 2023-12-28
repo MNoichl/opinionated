@@ -1,0 +1,66 @@
+font.family:  sans-serif
+font.size:    12.0
+
+font.serif:      IBM Plex Serif, Bitstream Vera Serif, Computer Modern Roman, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
+font.sans-serif: IBM Plex Sans, DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
+font.cursive:    Apple Chancery, Textile, Zapf Chancery, Sand, Script MT, Felipa, Comic Neue, Comic Sans MS, cursive
+font.fantasy:    Chicago, Charcoal, Impact, Western, Humor Sans, xkcd, fantasy
+font.monospace:  IBM Plex Sans Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Computer Modern Typewriter, Andale Mono, Nimbus Mono L, Courier New, Courier, Fixed, Terminal, monospace
+text.color: 838383
+
+axes.facecolor:     none   # axes background color
+axes.edgecolor:     none   # axes edge color
+axes.grid:          True   # display grid or not
+axes.titlecolor:    838383    # color of the axes title, auto falls back to
+                             # text.color as default value
+axes.labelcolor:    838383
+                           # https://en.wikipedia.org/wiki/Plus_and_minus_signs#Character_codes
+axes.prop_cycle: cycler('color', ['2196F3', 'EF5350', '4CAF50', 'FFA726', 'AE81FF', 'ffeb3b', 'EC407A', '009688', '838383'])
+xtick.color:         none   # color of the ticks
+xtick.labelcolor:    838383  # color of the tick labels or inherit from xtick.color
+
+ytick.color:         none   # color of the ticks
+ytick.labelcolor:    838383 # color of the tick labels or inherit from ytick.color
+lines.solid_capstyle: round
+axes.linewidth: 0
+xtick.major.size: 0
+ytick.major.size: 0
+xtick.minor.size: 0
+ytick.minor.size: 0
+axes.titlelocation: center
+xaxis.labellocation: center
+yaxis.labellocation: center
+
+legend.frameon: False
+legend.numpoints: 1
+legend.scatterpoints: 1
+legend.facecolor:     none  # inherit from axes.facecolor; or color spec
+legend.edgecolor:     none      # background patch boundary color
+legend.labelcolor:    838383
+
+
+grid.color:     838383           # grid color
+grid.linestyle: --                  # solid
+grid.linewidth: 0.4                 # in points
+grid.alpha:     0.25                # transparency, between 0.0 and 1.0
+
+figure.figsize:     12.8, 9.6   # figure size in inches
+figure.facecolor:   none        # figure face color
+
+image.cmap:            viridis            # A colormap name (plasma, magma, etc.)
+savefig.facecolor: none                   # figure face color when saving
+savefig.format:    svg                    # {png, ps, pdf, svg}
+savefig.bbox:      tight                  # {tight, standard}
+savefig.transparent: True                 # whether figures are saved with a transparent
+
+## ***************************************************************************
+## * PATCHES                                                                 *
+## ***************************************************************************
+## Patches are graphical objects that fill 2D space, like polygons or circles.
+## See https://matplotlib.org/stable/api/artist_api.html#module-matplotlib.patches
+## for more information on patch properties.
+#patch.linewidth:       1.0    # edge width in points.
+#patch.facecolor:       C0
+patch.edgecolor: none  # if forced, or patch is not filled
+#patch.force_edgecolor: False  # True to always use edgecolor
+patch.antialiased:     True   # render patches in antialiased (no jaggies)
