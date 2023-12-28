@@ -10,7 +10,7 @@ font.sans-serif: IBM Plex Sans, DejaVu Sans, Bitstream Vera Sans, Computer Moder
 font.cursive:    Apple Chancery, Textile, Zapf Chancery, Sand, Script MT, Felipa, Comic Neue, Comic Sans MS, cursive
 font.fantasy:    Chicago, Charcoal, Impact, Western, Humor Sans, xkcd, fantasy
 font.monospace:  IBM Plex Sans Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Computer Modern Typewriter, Andale Mono, Nimbus Mono L, Courier New, Courier, Fixed, Terminal, monospace
-text.color: "#838383"
+text.color: 838383
 
 axes.facecolor:     none   # axes background color
 axes.edgecolor:     none   # axes edge color
@@ -20,20 +20,20 @@ axes.grid:          True   # display grid or not
 #axes.titlelocation: center  # alignment of the title: {left, right, center}
 #axes.titlesize:     large   # font size of the axes title
 #axes.titleweight:   normal  # font weight of title
-axes.titlecolor:    "#838383"    # color of the axes title, auto falls back to
+axes.titlecolor:    838383    # color of the axes title, auto falls back to
                              # text.color as default value
 #axes.titley:        None    # position title (axes relative units).  None implies auto
 #axes.titlepad:      6.0     # pad between axes and title in points
 #axes.labelsize:     medium  # font size of the x and y labels
 #axes.labelpad:      4.0     # space between label and axis
 #axes.labelweight:   normal  # weight of the x and y labels
-axes.labelcolor:    "#939393"
+axes.labelcolor:    939393
 #axes.unicode_minus: True  # use Unicode for the minus symbol rather than hyphen.  See
                            # https://en.wikipedia.org/wiki/Plus_and_minus_signs#Character_codes
 # axes.prop_cycle: cycler('color', ['1f77b4', 'ff7f0e', '2ca02c', 'd62728', '9467bd', '8c564b', 'e377c2', '7f7f7f', 'bcbd22', '17becf'])
-axes.prop_cycle: cycler('color', ["#2196F3", "#EF5350", "#4CAF50", "#FFA726", "#AE81FF", "#ffeb3b", "#EC407A", "#009688", "#CFCFCF"])
+axes.prop_cycle: cycler('color', ["2196F3", "EF5350", "4CAF50", "FFA726", "AE81FF", "ffeb3b", "EC407A", "009688", "CFCFCF"])
 xtick.color:         none   # color of the ticks
-xtick.labelcolor:    "#838383"  # color of the tick labels or inherit from xtick.color
+xtick.labelcolor:    838383  # color of the tick labels or inherit from xtick.color
 #xtick.labelsize:     medium  # font size of the tick labels
 #xtick.direction:     out     # direction: {in, out, inout}
 #xtick.minor.visible: False   # visibility of minor ticks on x-axis
@@ -54,7 +54,7 @@ xtick.labelcolor:    "#838383"  # color of the tick labels or inherit from xtick
 #ytick.major.pad:     3.5     # distance to major tick label in points
 #ytick.minor.pad:     3.4     # distance to the minor tick label in points
 ytick.color:         none   # color of the ticks
-ytick.labelcolor:    "#838383" # color of the tick labels or inherit from ytick.color
+ytick.labelcolor:    838383 # color of the tick labels or inherit from ytick.color
 #ytick.labelsize:     medium  # font size of the tick labels
 #ytick.direction:     out     # direction: {in, out, inout}
 #ytick.minor.visible: False   # visibility of minor ticks on y-axis
@@ -68,7 +68,7 @@ ytick.labelcolor:    "#838383" # color of the tick labels or inherit from ytick.
 ## ***************************************************************************
 ## * GRIDS                                                                   *
 ## ***************************************************************************
-grid.color:     "#838383"  # grid color
+grid.color:     838383  # grid color
 grid.linestyle: --          # solid
 grid.linewidth: 0.5        # in points
 grid.alpha:     0.4        # transparency, between 0.0 and 1.0
@@ -89,7 +89,7 @@ legend.edgecolor:     none      # background patch boundary color
 #legend.scatterpoints: 1        # number of scatter points
 #legend.markerscale:   1.0      # the relative size of legend markers vs. original
 #legend.fontsize:      medium
-legend.labelcolor:    "#838383"
+legend.labelcolor:    838383
 #legend.title_fontsize: None    # None sets to the same as the default axes.
 
 ## Dimensions as fraction of font size:
