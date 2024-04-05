@@ -18,7 +18,12 @@ from IPython.core.display import HTML
 
 
 
-
+# for the font downloading from datamapplot
+import matplotlib.font_manager
+from tempfile import NamedTemporaryFile
+from fontTools import ttLib
+import re
+import requests
 
 
 # download fonts from google fonts and save them in the fonts folder:
