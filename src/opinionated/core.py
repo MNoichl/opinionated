@@ -1,25 +1,18 @@
 
-import requests
-import zipfile
-import io
 import os
-import shutil
+import re
 from pathlib import Path
-import opinionated # this works?
+from tempfile import NamedTemporaryFile
+
 import matplotlib as mpl
-
-from typing import Optional, Union, List, Tuple
-
-
-
 import matplotlib.pyplot as plt
-from matplotlib import font_manager as fm
+import requests
+from fontTools import ttLib
 from IPython.core.display import HTML
+from IPython.display import display
+from matplotlib import font_manager as fm
 
-
-
-
-
+import opinionated  # this works?
 
 # download fonts from google fonts and save them in the fonts folder:
 # def download_googlefont(font='Roboto Condensed', add_to_cache=False):
@@ -43,7 +36,7 @@ from IPython.core.display import HTML
 def download_googlefont(font='Roboto Condensed', add_to_cache=False):
     """Code taken from Leland McInnes amazing datamapplot-library"""
     api_fontname = font.replace(' ', '+')
-    api_response = resp = requests.get(f"https://fonts.googleapis.com/css?family={api_fontname}:black,bold,regular,light")
+    api_response = requests.get(f"https://fonts.googleapis.com/css?family={api_fontname}:black,bold,regular,light")
     font_urls = re.findall(r'(https?://[^\)]+)', str(api_response.content))
     for font_url in font_urls:
         font_data = requests.get(font_url)
@@ -52,7 +45,7 @@ def download_googlefont(font='Roboto Condensed', add_to_cache=False):
         f.close()
         font = ttLib.TTFont(f.name)
         font_family_name = font['name'].getDebugName(1)
-        matplotlib.font_manager.fontManager.addfont(f.name)
+        mpl.font_manager.fontManager.addfont(f.name)
         print(f"Added new font as {font_family_name}")
 
     if add_to_cache:
