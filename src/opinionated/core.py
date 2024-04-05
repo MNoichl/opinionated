@@ -17,21 +17,44 @@ from matplotlib import font_manager as fm
 from IPython.core.display import HTML
 
 
-# download fonts from google fonts and save them in the fonts folder:
-def download_googlefont(font='Roboto Condensed', add_to_cache=False):
-    """download a font from google fonts and save it in the fonts folder
 
-    Args:
-        font (str, optional): The font to download. Must be the name used by googlefonts. Defaults to 'Roboto Condensed'.
-    """
-    # download the font
-    url = f'https://fonts.google.com/download?family={font}'
-    r = requests.get(url)
-    z = zipfile.ZipFile(io.BytesIO(r.content))
-    # extract into the package folder
-    font_folder = Path(opinionated.__file__).parent / 'fonts'
-    z.extractall(font_folder)
-    print(f'Font saved to: {font_folder}')
+
+
+
+# download fonts from google fonts and save them in the fonts folder:
+# def download_googlefont(font='Roboto Condensed', add_to_cache=False):
+#     """download a font from google fonts and save it in the fonts folder
+
+#     Args:
+#         font (str, optional): The font to download. Must be the name used by googlefonts. Defaults to 'Roboto Condensed'.
+#     """
+#     # download the font
+#     url = f'https://fonts.google.com/download?family={font}'
+#     r = requests.get(url)
+#     z = zipfile.ZipFile(io.BytesIO(r.content))
+#     # extract into the package folder
+#     font_folder = Path(opinionated.__file__).parent / 'fonts'
+#     z.extractall(font_folder)
+#     print(f'Font saved to: {font_folder}')
+#     if add_to_cache:
+#         update_matplotlib_fonts()
+
+
+def download_googlefont(font='Roboto Condensed', add_to_cache=False):
+    """Code taken from Leland McInnes amazing datamapplot-library"""
+    api_fontname = font.replace(' ', '+')
+    api_response = resp = requests.get(f"https://fonts.googleapis.com/css?family={api_fontname}:black,bold,regular,light")
+    font_urls = re.findall(r'(https?://[^\)]+)', str(api_response.content))
+    for font_url in font_urls:
+        font_data = requests.get(font_url)
+        f = NamedTemporaryFile(delete=False, suffix='.ttf')
+        f.write(font_data.content)
+        f.close()
+        font = ttLib.TTFont(f.name)
+        font_family_name = font['name'].getDebugName(1)
+        matplotlib.font_manager.fontManager.addfont(f.name)
+        print(f"Added new font as {font_family_name}")
+
     if add_to_cache:
         update_matplotlib_fonts()
 
